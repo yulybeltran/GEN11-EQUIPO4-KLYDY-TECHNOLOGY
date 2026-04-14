@@ -1,0 +1,476 @@
+/*luselly*/
+body {
+  background-color: #000510;
+  background-image:
+    /* Niebla cyan intensa arriba izquierda */
+    radial-gradient(ellipse 70% 50% at -10% 0%,   rgba(0,240,200,0.28)  0%, transparent 60%),
+    /* Niebla purple izquierda centro */
+    radial-gradient(ellipse 55% 70% at -5%  60%,  rgba(188,79,232,0.22) 0%, transparent 55%),
+    /* Niebla pink arriba derecha */
+    radial-gradient(ellipse 60% 45% at 110% 0%,   rgba(255,60,172,0.20) 0%, transparent 55%),
+    /* Niebla blue derecha centro */
+    radial-gradient(ellipse 50% 60% at 110% 55%,  rgba(10,189,227,0.18) 0%, transparent 55%),
+    /* Resplandor purple abajo centro */
+    radial-gradient(ellipse 80% 60% at 50%  110%,  rgba(188,79,232,0.18) 0%, transparent 60%),
+    /* Cyan abajo izquierda */
+    radial-gradient(ellipse 60% 40% at 30%  110%,  rgba(0,240,200,0.12)  0%, transparent 55%),
+    /* Pink abajo derecha */
+    radial-gradient(ellipse 50% 35% at 80%  110%,  rgba(255,60,172,0.14) 0%, transparent 55%),
+    /* Base oscura profunda */
+    linear-gradient(180deg, #000812 0%, #010a1a 35%, #000d1f 65%, #000510 100%);
+
+  
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: 70px;
+  padding-top: 70px;
+  margin-top: 70px;
+}
+
+/*titulo*/
+h1{
+    color: #20CADD;
+    font-family: 'Inter', sans-serif;
+    font-weight: 900; 
+    font-size: 50px;
+    text-shadow: 1px 1px 10px #151622;
+}
+
+/*subtitulo*/
+.lead{
+    color: aliceblue;
+    font-size: 20px;
+    opacity: 0.7;
+}
+
+/*cards de obejtivo etc..*/
+.color{
+    background-color: transparent !important;
+    box-shadow: 0px 0px 7px #20CADD !important; 
+    color: #f6f7f7;
+    opacity: 0.7;
+    text-align: center;
+    transition: transform 0.3s ease;
+   
+}
+
+/*cards de equipo*/
+.etile{
+    background-color: #f6f7f7;
+    box-shadow: 0px 0px 7px #20CADD !important; 
+    color: #f6f7f7;
+    opacity: 0.6;
+    text-align: center;
+    transition: transform 0.3s ease;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    padding: 2rem 1.25rem 1.5rem;
+    background: #0f0f0f;
+   
+}
+
+/*cards de equipo movimiento*/
+.etile:hover{
+    cursor: pointer;
+    transform: scale(1.04);
+    border: 2px solid #f6f7f7; 
+    border-color: #20CADD; 
+    box-shadow: 0 0 30px #20CADD, 0 20px 60px #00000099; 
+   
+}
+
+
+/* --- Canvas partículas --- */
+canvas.particles {
+  position: absolute; 
+  inset: 0;
+  width: 100%; 
+  height: 100%;
+  pointer-events: none; 
+  z-index: 1;
+  opacity: 0; 
+  transition: opacity 0.4s ease;
+}
+
+/* --- Canvas partículas  --- */
+.card:hover canvas.particles { opacity: 1.2; }
+
+/* --- Inner content --- */
+.inner { 
+  position: relative; 
+  z-index: 3; 
+}
+
+/* --- IMAGEN de equipo --- */
+.avatar-wrap { 
+  position: relative;
+  width: 100%; 
+  max-width: 156px; 
+  aspect-ratio: 156 / 106; /* mantiene la proporción */
+  margin: 0 auto; 
+}
+
+/* --- IMAGEN de equipo --- */
+.avatar {
+  width: 100%;
+  height: 100%; 
+  border-radius: 30%;
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  font-size: 24px; 
+  font-weight: 700; 
+  color: #fff;
+  background: #1c1c1c; 
+  border: 1px solid #ffffff11;
+  transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* importante */
+  border-radius: 30%;
+}
+
+/* --- IMAGEN de equipo --- */
+.etile:hover .avatar { 
+  transform: scale(1.05);
+}
+
+/* --- IMAGEN de equipo hover --- */
+.card-cyan:hover  .avatar { 
+  border-color: #20CADD; 
+  box-shadow: 0 0 10px#20CADD; 
+}
+
+/* --- Texto nombre cards equipo--- */
+.name { 
+  font-size: 16px; 
+  font-weight: 700; 
+  color: #d0c7c7; 
+  margin-bottom: 3px; 
+  transition: letter-spacing 0.3s; 
+}
+
+/* --- Texto nombre cards equipo hover--- */
+.etile:hover .name { 
+  letter-spacing: 0.8px; 
+}
+
+
+/*texto prefecion*/
+.role { 
+  font-size: 11px; 
+  color: #dcd7d7; 
+  letter-spacing: 1px; 
+  text-transform: uppercase; 
+  margin-bottom: 1.1rem; 
+  transition: color 0.3s; 
+}
+
+/*texto prefecion hover*/ 
+.card-cyan:hover  .role { 
+  color: #00f0ffaa; 
+}
+
+
+/* --- Divider  linea--- */
+.divider { 
+  height: 1px; 
+  background: #ffffff08;
+  margin-bottom: 1rem; 
+  position: relative; 
+  overflow: hidden; 
+}
+
+/* --- Divider  linea--- */
+.divider-line { 
+  position: absolute; 
+  top: 0; left: -100%;
+   height: 100%; 
+   width: 100%; 
+   transition: left 0.5s ease 0.1s; 
+  }
+
+.card:hover .divider-line { 
+  left: 0; 
+}
+
+.card-cyan  .divider-line { 
+  background: linear-gradient(90deg, transparent, #00f0ff88, transparent); 
+}
+
+
+/* --- sobre mi texto --- */
+.stats { 
+  display: flex; 
+  justify-content: center; 
+  margin-bottom: 1.1rem; }
+
+.stat-val { 
+  font-size: 18px;
+  font-weight: 700; 
+  color: #fff; 
+  transition: color 0.3s; 
+}
+
+.stat-label { 
+  font-size: 10px;
+  color: #555; 
+  margin-top: 2px; 
+  letter-spacing: 0.5px; 
+  text-transform: uppercase; 
+}
+
+
+.card-cyan:hover  .stat-val {
+  color: #00f0ff; 
+}
+
+/* --- Tags --- */
+
+
+
+/* --- Botón --- */
+.btn {
+  display: inline-block;
+  padding: 9px 28px; 
+  border-radius: 30px;
+  font-size: 13px; 
+  font-weight: 600; 
+  cursor: pointer;
+  border: 1px solid #ffffff15; 
+  background: #1a1a1a; 
+  color: #666;
+  transition: all 0.35s ease;
+}
+.card-cyan:hover  .btn {
+  border-color: #00f0ff99; 
+  color: #00f0ff; 
+  background: #00f0ff11; 
+  box-shadow: 0 0 18px #00f0ff44; 
+}
+
+
+h3{
+    color: #20CADD !important;
+    font-size: 35px !important;
+    text-shadow: 2px 2px 10px #151622 ;
+}
+
+.text-muted{
+    color: aliceblue !important;
+    opacity: 0.6 !important;
+    font-size: 20px !important;
+}
+
+.card-title{
+    color: #20CADD !important; 
+}
+.shadow-sm{
+    background-color: #000510 !important;
+}
+
+
+.btn-secondary{
+    background-color: #000510 !important;
+    border: 1px solid #20CADD !important;
+}
+
+.btn-secondary:hover{
+    box-shadow: 0px 0px 7px #20CADD;
+    background-color: #000510;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ============================================================
+   BASE
+   ============================================================ 
+*, *::before, *::after { box-sizing: border-box; margin: 20ex; padding: 0; }
+
+
+:root {
+
+ ── FONDOS ─────────────────────────────────────────────── 
+  --bg-base:          #050d1f;   /* Fondo principal 
+  --bg-surface:       #0d1225;   /* Tarjetas, modales 
+  --bg-elevated:      #141d35;   /* Hover, elementos elevados
+  --bg-overlay:       rgba(5, 13, 31, 0.97);  /* Navbar, overlays 
+
+  /* ── NEONES PRINCIPALES ─────────────────────────────────── 
+  --neon-cyan:        #00f0c8;   /* Primario — links activos, bordes, precios 
+  --neon-purple:      #bc4fe8;   /* Secundario — categorías, login 
+  --neon-pink:        #ff3cac;   /* Acento — carrito, badges, CTAs 
+  --neon-blue:        #0abde3;   /* Info — botón enviar, links 
+
+  /* ── NEONES CON OPACIDAD (fondos y glows) ───────────────── 
+  --neon-cyan-10:     rgba(0, 240, 200, 0.10);
+  --neon-cyan-15:     rgba(0, 240, 200, 0.15);
+  --neon-cyan-20:     rgba(0, 240, 200, 0.20);
+  --neon-purple-10:   rgba(188, 79, 232, 0.10);
+  --neon-purple-20:   rgba(188, 79, 232, 0.20);
+  --neon-pink-10:     rgba(255, 60, 172, 0.10);
+  --neon-pink-20:     rgba(255, 60, 172, 0.20);
+  --neon-blue-10:     rgba(10, 189, 227, 0.10);
+  --neon-blue-20:     rgba(10, 189, 227, 0.20);
+
+  /* ── TEXTO ──────────────────────────────────────────────── 
+  --text-primary:     #ffffff;
+  --text-secondary:   rgba(255, 255, 255, 0.55);
+  --text-muted:       rgba(255, 255, 255, 0.30);
+  --text-cyan:        #00f0c8;
+  --text-purple:      #bc4fe8;
+  --text-pink:        #ff3cac;
+  --text-blue:        #0abde3;
+
+  /* ── BORDES ─────────────────────────────────────────────── 
+  --border-default:   rgba(255, 255, 255, 0.08);
+  --border-cyan:      rgba(0, 240, 200, 0.25);
+  --border-cyan-hover:rgba(0, 240, 200, 0.55);
+  --border-purple:    rgba(188, 79, 232, 0.25);
+  --border-pink:      rgba(255, 60, 172, 0.25);
+  --border-blue:      rgba(10, 189, 227, 0.25);
+
+  /* ── GLOWS / SOMBRAS ────────────────────────────────────── 
+  --glow-cyan:        0 0 14px rgba(0, 240, 200, 0.35);
+  --glow-cyan-lg:     0 0 30px rgba(0, 240, 200, 0.50);
+  --glow-purple:      0 0 14px rgba(188, 79, 232, 0.35);
+  --glow-pink:        0 0 14px rgba(255, 60, 172, 0.35);
+  --glow-blue:        0 0 14px rgba(10, 189, 227, 0.35);
+
+  /* ── GRADIENTES ─────────────────────────────────────────── 
+  --gradient-cyan-purple: linear-gradient(90deg, #00f0c8, #bc4fe8);
+  --gradient-purple-pink: linear-gradient(90deg, #bc4fe8, #ff3cac);
+  --gradient-cyan-blue:   linear-gradient(90deg, #00f0c8, #0abde3);
+  --gradient-btn:         linear-gradient(90deg, #00f0c8, #0abde3);
+
+  /* ── BORDER RADIUS ──────────────────────────────────────── 
+  --radius-sm:   6px;
+  --radius-md:   8px;
+  --radius-lg:   12px;
+  --radius-xl:   16px;
+  --radius-pill: 999px;
+
+  /* ── TIPOGRAFÍA ─────────────────────────────────────────── 
+  --font-heading: 'Orbitron', sans-serif;
+  --font-body:    'Inter', sans-serif;
+
+  /* ── TRANSICIONES ───────────────────────────────────────── 
+  --transition-fast:   all 0.15s ease;
+  --transition-normal: all 0.20s ease;
+  --transition-slow:   all 0.30s ease;
+
+}
+
+body {
+  background-color: #000510;
+  background-image:
+    /* Niebla cyan intensa arriba izquierda 
+    radial-gradient(ellipse 70% 50% at -10% 0%,   rgba(0,240,200,0.28)  0%, transparent 60%),
+    /* Niebla purple izquierda centro 
+    radial-gradient(ellipse 55% 70% at -5%  60%,  rgba(188,79,232,0.22) 0%, transparent 55%),
+    /* Niebla pink arriba derecha 
+    radial-gradient(ellipse 60% 45% at 110% 0%,   rgba(255,60,172,0.20) 0%, transparent 55%),
+    /* Niebla blue derecha centro 
+    radial-gradient(ellipse 50% 60% at 110% 55%,  rgba(10,189,227,0.18) 0%, transparent 55%),
+    /* Resplandor purple abajo centro 
+    radial-gradient(ellipse 80% 60% at 50%  110%,  rgba(188,79,232,0.18) 0%, transparent 60%),
+    /* Cyan abajo izquierda 
+    radial-gradient(ellipse 60% 40% at 30%  110%,  rgba(0,240,200,0.12)  0%, transparent 55%),
+    /* Pink abajo derecha 
+    radial-gradient(ellipse 50% 35% at 80%  110%,  rgba(255,60,172,0.14) 0%, transparent 55%),
+    /* Base oscura profunda 
+    linear-gradient(180deg, #000812 0%, #010a1a 35%, #000d1f 65%, #000510 100%);
+
+  font-family: 'Inter', sans-serif; 
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: 70px;
+  padding-top: 70px;
+  margin-top: 70px;
+}
+
+body {
+  padding-top: 70px;
+  padding-bottom: 70px;
+  font-family: 'Inter', sans-serif; 
+  min-height: 100vh;
+  position: relative;
+
+}
+
+/* ── L-SHAPES ESQUINAS ─────────────────────────────────────── 
+.neon-lines {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.neon-lines svg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+}
+
+
+/* ── CONTENIDO ENCIMA ──────────────────────────────────────── 
+
+/*-*****-
+body > *:not(.neon-lines) {
+  position: relative;
+  z-index: 1;
+}
+
+
+@media (min-width: 992px) {
+  body { 
+    padding-bottom: 0; /* en desktop no hay barra inferior 
+  }
+}
+
+
+
+
+/* ============================================================
+   DEMO — contenido de relleno
+   ============================================================ 
+.demo-content {
+  padding: 3rem 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.demo-tag {
+  font-size: 10px; font-weight: 600; letter-spacing: 0.15em;
+  text-transform: uppercase; color: #00f0c8;
+  background: rgba(0,240,200,0.08); border: 1px solid rgba(0,240,200,0.2);
+  padding: 4px 12px; border-radius: 20px; display: inline-block;
+  margin-bottom: 1rem;
+}
+.demo-h1 {
+  font-family: 'Orbitron', sans-serif; font-size: 28px; font-weight: 700;
+  color: #fff; margin-bottom: 0.75rem;
+  text-shadow: 0 0 30px rgba(0,240,200,0.2);
+}
+.demo-p { font-size: 14px; color: rgba(255,255,255,0.45); line-height: 1.7; }
+
+*/
+
+
+
