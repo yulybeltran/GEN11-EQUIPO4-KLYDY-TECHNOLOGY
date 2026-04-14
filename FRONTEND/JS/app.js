@@ -15,7 +15,7 @@ document.querySelectorAll('.card').forEach(card => {
     canvas.height = card.offsetHeight;
   }
 
-  resize(); // 🔥 IMPORTANTE
+  resize(); // IMPORTANTE
 
   function spawn() {
     const x = Math.random() * canvas.width;
