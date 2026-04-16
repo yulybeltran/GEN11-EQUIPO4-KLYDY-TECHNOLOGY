@@ -9,7 +9,7 @@
   /* ── FONDOS ─────────────────────────────────────────────── */
   --bg-base:          #050d1f;   /* Fondo principal */
   --bg-surface:       #0d1225;   /* Tarjetas, modales */
-  --bg-elevated:      #141d35;   /* Hover, elementos elevados */
+  --bg-elevated:      #141d35;   /* Hover, elementos */
   --bg-overlay:       rgba(5, 13, 31, 0.97);  /* Navbar, overlays */
 
   /* ── NEONES PRINCIPALES ─────────────────────────────────── */
@@ -18,7 +18,7 @@
   --neon-pink:        #ff3cac;   /* Acento — carrito, badges, CTAs */
   --neon-blue:        #0abde3;   /* Info — botón enviar, links */
 
-  /* ── NEONES CON OPACIDAD (fondos y glows) ───────────────── */
+  /* ── NEONES CON OPACIDAD (fondos) ───────────────── */
   --neon-cyan-10:     rgba(0, 240, 200, 0.10);
   --neon-cyan-15:     rgba(0, 240, 200, 0.15);
   --neon-cyan-20:     rgba(0, 240, 200, 0.20);
@@ -46,7 +46,7 @@
   --border-pink:      rgba(255, 60, 172, 0.25);
   --border-blue:      rgba(10, 189, 227, 0.25);
 
-  /* ── GLOWS / SOMBRAS ────────────────────────────────────── */
+  /* / SOMBRAS ────────────────────────────────────── */
   --glow-cyan:        0 0 14px rgba(0, 240, 200, 0.35);
   --glow-cyan-lg:     0 0 30px rgba(0, 240, 200, 0.50);
   --glow-purple:      0 0 14px rgba(188, 79, 232, 0.35);
@@ -128,14 +128,6 @@ body {
   inset: 0;
 }
 
-
-/* ── CONTENIDO ENCIMA ──────────────────────────────────────── */
-
-/*-*****-
-body > *:not(.neon-lines) {
-  position: relative;
-  z-index: 1;
-}*/
 
 
 @media (min-width: 992px) {
@@ -317,7 +309,6 @@ nav{
   display: none;
 }
 
-/* Ícono del toggler cambia según estado */
 /* Ícono del toggler cambia según estado */
 .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,60,172,0.85)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M6 6L24 24M6 24L24 6'/%3e%3c/svg%3e") !important;
@@ -571,32 +562,6 @@ nav{
   }
 
 }
-
-/* ============================================================
-   DEMO — contenido de relleno
-   ============================================================ */
-.demo-content {
-  padding: 3rem 2rem;
-  max-width: 800px;
-  margin: 0 auto;
-}
-.demo-tag {
-  font-size: 10px; font-weight: 600; letter-spacing: 0.15em;
-  text-transform: uppercase; color: #00f0c8;
-  background: rgba(0,240,200,0.08); border: 1px solid rgba(0,240,200,0.2);
-  padding: 4px 12px; border-radius: 20px; display: inline-block;
-  margin-bottom: 1rem;
-}
-.demo-h1 {
-  font-family: 'Orbitron', sans-serif; font-size: 28px; font-weight: 700;
-  color: #fff; margin-bottom: 0.75rem;
-  text-shadow: 0 0 30px rgba(0,240,200,0.2);
-}
-.demo-p { font-size: 14px; color: rgba(255,255,255,0.45); line-height: 1.7; }
-
-
-
-
 
 * ══════════════════════════════════════════════════════
    FOOTER
@@ -935,3 +900,7 @@ nav{
   color: #00f0c8;
   text-decoration: none;
 }
+
+/* ============================================================
+   CONTENIDO......
+   ============================================================ */

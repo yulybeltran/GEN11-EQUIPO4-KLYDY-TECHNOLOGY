@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KLYDY Technology</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+<link rel="icon" type="image/png" sizes="16x16" href="images/klydy-favicon-32.png">
+<link rel="stylesheet" href="../CSS/nav.css">
+<link rel="stylesheet" href="../CSS/contacto.css">
+<link rel="stylesheet" href="../CSS/footer.css">
+</head>
+<body>
+  </div>
+
+<div class="neon-lines">
+  <svg viewBox="0 0 1440 900" preserveAspectRatio="none"
+       xmlns="http://www.w3.org/2000/svg">
+
+    <div class="neon-lines">
+  <svg viewBox="0 0 1440 900" preserveAspectRatio="none"
+       xmlns="http://www.w3.org/2000/svg">
+
+    <!-- Cyan — esquina derecha inferior -->
+    <polyline points="1380,900 1380,580 1440,580"
+      fill="none" stroke="#00f0c8" stroke-width="2"  opacity="0.6"/>
+    <polyline points="1380,900 1380,580 1440,580"
+      fill="none" stroke="#00f0c8" stroke-width="18" opacity="0.07"/>
+
+    <!-- Purple — esquina izquierda inferior -->
+    <polyline points="60,900 60,620 0,620"
+      fill="none" stroke="#bc4fe8" stroke-width="2"  opacity="0.55"/>
+    <polyline points="60,900 60,620 0,620"
+      fill="none" stroke="#bc4fe8" stroke-width="18" opacity="0.07"/>
+
+    <!-- Pink — esquina derecha superior (bajada 70px por el navbar) -->
+    <polyline points="1440,190 1360,190 1360,70"
+      fill="none" stroke="#ff3cac" stroke-width="1.5" opacity="0.50"/>
+    <polyline points="1440,190 1360,190 1360,70"
+      fill="none" stroke="#ff3cac" stroke-width="14"  opacity="0.06"/>
+
+    <!-- Blue — esquina izquierda superior (bajada 70px por el navbar) -->
+    <polyline points="0,180 80,180 80,70"
+      fill="none" stroke="#0abde3" stroke-width="1.5" opacity="0.50"/>
+    <polyline points="0,180 80,180 80,70"
+      fill="none" stroke="#0abde3" stroke-width="14"  opacity="0.06"/>
+
+  </svg>
+</div>
+
+
+
+
+
+<!-- Contenido principal -->
+<div class="page-wrap">
+
+    <!-- PÁGINA CONTACTO -->
+  <main class="contact-page">
+  
+  <div class="contact-tag">CONTÁCTANOS</div>
+
+    <div class="contact-grid">
+      
+      <!-- Info cards -->
+      <div class="info-cards">
+  
+        <div class="info-card">
+          <div class="info-icon"><i class="bi bi-geo-alt"></i></div>
+          <div>
+            <div class="info-label">Dirección</div>
+            <div class="info-val">Bogotá<br>Colombia</div>
+          </div>
+        </div>
+
+        <div class="info-card purple">
+          <div class="info-icon"><i class="bi bi-envelope-at"></i></div>
+          <div>
+            <div class="info-label">Email</div>
+            <div class="info-val">servicioalcliente@klydy.com</div>
+          </div>
+        </div>
+
+        <div class="info-card pink">
+          <div class="info-icon"><i class="bi bi-telephone"></i></div>
+          <div>
+            <div class="info-label">Teléfono</div>
+            <div class="info-val">+57 320 000 00 00</div>
+          </div>
+        </div>
+
+        <div class="info-card blue">
+          <div class="info-icon"><i class="bi bi-alarm"></i></div>
+          <div>
+            <div class="info-label">Horario</div>
+            <div class="info-val">Lun-Vie 8:00-18:00<br>Sáb 10:00-14:00</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Formulario -->
+      <div class="form-panel">
+  <div class="modal-logo-wrap">
+        <p class="modal-logo"><span>K</span>lydy<span class="modal-logo-dot"></span></p>
+        <p class="modal-logo-sub">Technology</p>
+      </div>
+        <div class="form-row">
+          <div class="f-group">
+            <label class="f-label">Nombre</label>
+            <input class="f-input" type="text" placeholder="Tu nombre">
+          </div>
+          <div class="f-group">
+            <label class="f-label">Email</label>
+            <input class="f-input" type="email" placeholder="tu@email.com">
+          </div>
+        </div>
+   
+        <div class="form-row-full">
+          <div class="f-group">
+            <label class="f-label">Mensaje</label>
+            <textarea class="f-textarea" placeholder="Escribe tu mensaje aquí..."></textarea>
+          </div>
+        </div>
+
+        <button class="send-btn">Enviar Mensaje</button>
+
+      </div>
+    </div>
+  </main>
+
+<!-- ============================================================
+     MODAL LOGIN
+     ============================================================ -->
+<div class="modal fade" id="modalLogin" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content modal-klydy">
+
+      <div class="modal-header border-0">
+        <h5 class="modal-title text-white fw-bold">Iniciar sesión</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-logo-wrap">
+        <p class="modal-logo"><span>K</span>lydy<span class="modal-logo-dot"></span></p>
+        <p class="modal-logo-sub">Technology</p>
+      </div>
+
+      <div class="modal-body px-4 pb-4">
+        <div class="mb-3">
+          <label class="modal-label">Correo</label>
+          <input type="email" class="form-control klydy-input" placeholder="tu@email.com">
+        </div>
+        <div class="mb-4">
+          <label class="modal-label">Contraseña</label>
+          <input type="password" class="form-control klydy-input" placeholder="••••••••">
+        </div>
+        <button class="btn w-100 fw-bold modal-btn-enter">ENTRAR</button>
+        <p class="modal-register-text">
+          ¿No tienes cuenta? <a href="#" class="modal-register-link">Regístrate</a>
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+ 
+</body>
+</html>
