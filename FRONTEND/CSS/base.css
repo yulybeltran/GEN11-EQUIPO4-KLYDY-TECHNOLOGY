@@ -154,7 +154,7 @@ nav{
   opacity: 100%;
 }
 
- 
+
 
 .container-fluid {
   display: flex;
@@ -172,6 +172,7 @@ nav{
   letter-spacing: 1px;
   text-decoration: none;
   flex-shrink: 0;
+  
 }
 .navbar-brand span { color: var(--neon-cyan); }
 .navbar-brand img {
@@ -181,6 +182,7 @@ nav{
 }
 
 .klydy-link {
+  margin-left: 30px;
   position: relative;
   font-size: 12px;
   font-weight: 600;
@@ -190,6 +192,7 @@ nav{
   border-radius: var(--radius-md);
   transition: var(--transition-normal);
   white-space: nowrap;
+
 }
 
 .klydy-link::after {
@@ -257,10 +260,10 @@ nav{
   display: flex; align-items: center; gap: 6px;
 }
 .klydy-btn-login:hover {
-  color: var(--neon-purple);
-  background: var(--neon-purple-10);
-  border-color: var(--border-purple);
-  box-shadow: var(--glow-purple);
+  color: var(--neon-cyan);
+  background: var(--neon-cyan-10);
+  border-color: var(--border-cyan);
+  box-shadow: var(--glow-cyan);
 }
 
 .klydy-btn-cart {
@@ -274,10 +277,7 @@ nav{
   display: flex; align-items: center; gap: 6px;
 }
 .klydy-btn-cart:hover {
-  color: var(--neon-pink);
-  background: var(--neon-pink-10);
-  border-color: var(--border-pink);
-  box-shadow: var(--glow-pink);
+   color: var(--neon-cyan);
 }
 
 .klydy-badge {
@@ -324,6 +324,9 @@ nav{
   .footer-sub {
     display: none;
   }
+  .container-logo{
+  margin-bottom: 40px;
+}
 }
 @media (max-width: 991px) {
 
@@ -359,29 +362,6 @@ nav{
   .navbar-brand {
     padding: 0;
     margin: 0;
-    flex-shrink: 0;
-  }
-
-  /* Buscador siempre visible en móvil */
-  .mobile-search {
-    display: flex !important;
-    align-items: center;
-    flex: 1;
-    gap: 4px;
-    min-width: 0;
-  }
-
-  .mobile-search .klydy-input {
-    width: 100% !important;
-    min-width: 0;
-    font-size: 12px;
-    padding: 6px 10px;
-    height: 34px;
-  }
-
-  .mobile-search .klydy-search-btn {
-    padding: 5px 8px;
-    height: 34px;
     flex-shrink: 0;
   }
 
