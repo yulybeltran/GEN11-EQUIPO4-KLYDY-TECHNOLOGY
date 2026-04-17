@@ -87,3 +87,7 @@ document.querySelectorAll('.card').forEach(card => {
     }
   });
 });
+
+function irEnlaces(url){
+    window.open(url, "_blank")
+}
