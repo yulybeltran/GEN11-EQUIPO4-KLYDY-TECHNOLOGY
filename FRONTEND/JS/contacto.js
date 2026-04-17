@@ -5,7 +5,7 @@ const formulario = document.getElementById("form");
 
 formulario.addEventListener("submit", event =>{
 
-    localStorage.clear();
+    
 
     let nombreIngresado = inputNombre.value.trim().toLowerCase();
     let correoIngresado = inputCorreo.value.trim();
