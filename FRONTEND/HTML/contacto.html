@@ -102,6 +102,7 @@
       </div>
 
       <!-- Formulario -->
+      <form id="form" action="https://formspree.io/f/myklebdq" method="POST">
       <div class="form-panel">
   <div class="modal-logo-wrap">
         <p class="modal-logo"><span>K</span>lydy<span class="modal-logo-dot"></span></p>
@@ -110,25 +111,26 @@
         <div class="form-row">
           <div class="f-group">
             <label class="f-label">Nombre</label>
-            <input class="f-input" type="text" placeholder="Tu nombre">
+            <input name = "nombre-usuario" id = "inputNombre" class="f-input" type="text" placeholder="Tu nombre" required>
           </div>
           <div class="f-group">
             <label class="f-label">Email</label>
-            <input class="f-input" type="email" placeholder="tu@email.com">
+            <input name = "email-usuario" id = "inputEmail" class="f-input" type="email" placeholder="tu@email.com" required>
           </div>
         </div>
    
         <div class="form-row-full">
           <div class="f-group">
             <label class="f-label">Mensaje</label>
-            <textarea class="f-textarea" placeholder="Escribe tu mensaje aquí..."></textarea>
+            <textarea name = "mensaje-usuario" id="inputMensaje" class="f-textarea" placeholder="Escribe tu mensaje aquí..."></textarea>
           </div>
         </div>
 
-        <button class="send-btn">Enviar Mensaje</button>
+        <button type="submit" id="btnEnviar" class="send-btn">Enviar Mensaje</button>
 
       </div>
     </div>
+    </form> 
   </main>
 
 <!-- ============================================================
@@ -167,6 +169,6 @@
   </div>
 </div>
 
- 
+<script src="/FRONTEND/JS/contacto.js"></script>
 </body>
 </html>

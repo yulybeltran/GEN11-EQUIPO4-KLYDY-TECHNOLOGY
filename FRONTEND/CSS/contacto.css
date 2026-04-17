@@ -68,7 +68,7 @@ body {
   position: fixed;
   inset: 0;
   z-index: 1;
-  pointer-events: none;
+  pointer-events: auto;
 }
 
 .neon-lines svg {
@@ -482,4 +482,8 @@ body {
   .form-panel { padding: 12px; }
 
   .modal-logo { font-size: 18px; }
+}
+
+#contacto-form {
+    display: contents;
 }
