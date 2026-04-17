@@ -564,7 +564,7 @@ nav{
 }
 
 @media (max-width: 767px) {
-  .footer-divider { border-right: none; border-top: 1px solid var(--border-default); padding-top: 1.5rem; margin-top: 0.5rem; }
+  .footer-divider { border-right: none }
 }
 
 /* ══════════════════════════════════════════════════════
@@ -733,6 +733,7 @@ nav{
   font-size: 11px;
   color: var(--text-muted);
   margin: 0;
+  text-align: left;
 }
 
 .footer-copy span { color: var(--neon-cyan); }

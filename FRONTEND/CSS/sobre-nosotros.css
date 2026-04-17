@@ -355,7 +355,7 @@ canvas.particles {
 
 
 /* --- Botón --- */
-.btn {
+.btn-card-equipo {
   display: inline-block;
   padding: 9px 28px; 
   border-radius: 30px;

@@ -7,8 +7,8 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Orbitron:wght@700&display=swap" rel="stylesheet">
-<link rel="icon" type="image/png" sizes="16x16" href="images/klydy-favicon-32.png">
-<link rel="stylesheet" href="../CSS/base.css">
+<link rel="icon" type="image/png" sizes="16x16" href="../images/klydy-favicon-32.png">
+<link rel="stylesheet" href="../CSS/nav-footer.css">
 
 <style>
   /* Modales y offcanvas siempre por encima de la barra inferior */
@@ -73,10 +73,10 @@
     <div class="collapse navbar-collapse" id="navbarKlydy">
       <div>
         <ul class="navbar-nav flex-grow-1 justify-content-evenly mb-2 mb-lg-0">
-          <li class="nav-item"><a class="nav-link klydy-link" href="">HOME</a></li>
+          <li class="nav-item"><a class="nav-link klydy-link" href="index.html">HOME</a></li>
           <li class="nav-item"><a class="nav-link klydy-link" href="#">PRODUCTOS</a></li>
-          <li class="nav-item"><a class="nav-link klydy-link" href="#">SOBRE NOSOTROS</a></li>
-          <li class="nav-item"><a class="nav-link klydy-link" href="#">CONTÁCTANOS</a></li>
+          <li class="nav-item"><a class="nav-link klydy-link" href="sobre-nosotros.html">SOBRE NOSOTROS</a></li>
+          <li class="nav-item"><a class="nav-link klydy-link" href="contacto.html">CONTÁCTANOS</a></li>
         </ul>
       </div>
     </div>
@@ -109,7 +109,7 @@
 
 <!-- ============================================================
      MODAL LOGIN
-     ✅ Removido aria-hidden="true" del inicio — Bootstrap lo maneja solo
+    
      ============================================================ -->
 <div class="modal fade" id="modalLogin" tabindex="-1">
   <div class="modal-dialog modal-dialog-centered">
@@ -147,7 +147,6 @@
 
 <!-- ============================================================
      OFFCANVAS CARRITO
-     ✅ Faltaba este elemento — causaba el error "Cannot read properties of undefined"
      ============================================================ -->
 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasCarrito" aria-labelledby="offcanvasCarritoLabel">
   <div class="offcanvas-header" style="background:#0d1225; border-bottom: 1px solid rgba(0,240,200,0.2);">
@@ -224,21 +223,13 @@
     </div>
 
     <!-- BARRA COPYRIGHT -->
-    <div class="footer-bottom">
-      <div class="row align-items-center gy-2">
-        <div class="col-12 col-md-6">
-          <ul class="footer-bottom-links">
-            <li><a href="#">Términos</a></li>
-            <li><a href="#">Privacidad</a></li>
-          </ul>
-        </div>
-        <div class="col-12 col-md-6 text-md-end">
+    
+          <div class="col-12">
           <p class="footer-copy">
             © <span>Klydy Technology</span> — Developers and Design <span>2026</span>
           </p>
         </div>
-      </div>
-    </div>
+      
   </div>
 </footer>
 </section>
