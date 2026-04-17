@@ -129,13 +129,11 @@ body {
 }
 
 
-
 @media (min-width: 992px) {
   body { 
     padding-bottom: 0; /* en desktop no hay barra inferior */
   }
 }
-
 
 nav{
    background: var(--bg-overlay);
@@ -153,8 +151,6 @@ nav{
   padding: 0;
   opacity: 100%;
 }
-
-
 
 .container-fluid {
   display: flex;
@@ -192,7 +188,6 @@ nav{
   border-radius: var(--radius-md);
   transition: var(--transition-normal);
   white-space: nowrap;
-
 }
 
 .klydy-link::after {
@@ -287,8 +282,7 @@ nav{
   padding: 2px 6px;
   min-width: 18px;
   text-align: center;
-  line-height: 1.4;
-  
+  line-height: 1.4;  
 }
 
 .navbar-toggler {
@@ -320,13 +314,14 @@ nav{
   box-shadow: 0 0 10px rgba(255,60,172,0.25) !important;
 }
 
-@media (min-width: 992px) and (max-width: 1100px) {
+@media (min-width: 200px) and (max-width: 1100px) {
   .footer-sub {
     display: none;
   }
-  .container-logo{
-  margin-bottom: 40px;
+  .footer-logo {
+   margin-bottom: 10px;
 }
+ 
 }
 @media (max-width: 991px) {
 
@@ -348,17 +343,7 @@ nav{
     gap: 8px;
   }
 
-  /* Logo solo K en móvil */
-  .logo-mobile {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--neon-cyan);
-    letter-spacing: 1px;
-    flex-shrink: 0;
-    text-shadow: 0 0 10px rgba(0,240,200,0.6);
-  }
-
+ 
   .navbar-brand {
     padding: 0;
     margin: 0;
@@ -543,7 +528,8 @@ nav{
 
 }
 
-* ══════════════════════════════════════════════════════
+
+/* ══════════════════════════════════════════════════════
    FOOTER
 ══════════════════════════════════════════════════════ */
 .klydy-footer {
@@ -647,6 +633,7 @@ nav{
   letter-spacing: 1px;
   line-height: 1;
   text-decoration: none;
+  margin-top: 10px;
 }
 
 .footer-logo span { color: var(--neon-cyan); }
@@ -854,7 +841,7 @@ nav{
 }
 
 .modal-label {
-  color: rgba(255, 255, 255, 0.5);
+  color:#ffffff;
   font-size: 11px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -873,7 +860,7 @@ nav{
   margin-top: 0.75rem;
   margin-bottom: 0;
   font-size: 13px;
-  color: rgba(255, 255, 255, 0.4);
+  color: #ffffff;
 }
 
 .modal-register-link {

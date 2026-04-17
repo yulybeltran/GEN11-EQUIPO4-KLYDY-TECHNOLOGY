@@ -96,12 +96,9 @@ body {
     radial-gradient(ellipse 50% 35% at 80%  110%,  rgba(255,60,172,0.14) 0%, transparent 55%),
     /* Base oscura profunda */
     linear-gradient(180deg, #000812 0%, #010a1a 35%, #000d1f 65%, #000510 100%);
-
-  font-family: 'Inter', sans-serif; 
-  min-height: 100vh;
-  position: relative;
-  padding-bottom: 70px;
-  padding-top: 70px;
+     min-height: 100vh;
+ 
+ 
 }
 
 body {
@@ -110,6 +107,7 @@ body {
   font-family: 'Inter', sans-serif; 
   min-height: 100vh;
   position: relative;
+
 
 }
 
@@ -133,9 +131,13 @@ body {
 @media (min-width: 992px) {
   body { 
     padding-bottom: 0; /* en desktop no hay barra inferior */
+    
   }
 }
 
+.container{
+  margin: auto;
+}
 /*titulo*/
 h1{
     color: #00f0c8;
@@ -177,7 +179,7 @@ h1{
     overflow: hidden;
     border-radius: 20px;
     padding: 2rem 1.25rem 1.5rem;
-    background: #0f0f0f;
+    background: #050d1f;
    
 }
 
@@ -362,7 +364,7 @@ canvas.particles {
   font-family: 'Orbitron', sans-serif;
   cursor: pointer;
   border: 1px solid #ffffff15; 
-  background: #1a1a1a; 
+  background: #050d1f; 
   color: #666;
   transition: all 0.35s ease;
 }
@@ -393,7 +395,7 @@ h3{
     color: #00f0c8 !important; 
 }
 .shadow-sm{
-    background-color: #000510 !important;
+    background-color: #050d1f !important;
 }
 
 
@@ -406,5 +408,12 @@ h3{
     box-shadow: 0px 0px 7px #00f0c8;
     background-color: #000510;
 }
+@media (max-width: 991px) {
+  body {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
 
 

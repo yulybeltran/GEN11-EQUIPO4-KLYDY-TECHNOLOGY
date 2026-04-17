@@ -25,3 +25,22 @@ navbarCollapse.addEventListener('hide.bs.collapse', () => {
   btnMenu.classList.remove('active');
 });
 
+// Cierra cualquier modal u offcanvas abierto antes de abrir otro
+document.querySelectorAll('[data-bs-toggle="modal"], [data-bs-toggle="offcanvas"]')
+  .forEach(btn => {
+    btn.addEventListener('click', () => {
+
+      // Cerrar modal abierto
+      const modalAbierto = document.querySelector('.modal.show');
+      if (modalAbierto) {
+        bootstrap.Modal.getInstance(modalAbierto)?.hide();
+      }
+
+      // Cerrar offcanvas abierto
+      const offcanvasAbierto = document.querySelector('.offcanvas.show');
+      if (offcanvasAbierto) {
+        bootstrap.Offcanvas.getInstance(offcanvasAbierto)?.hide();
+      }
+
+    });
+  });
