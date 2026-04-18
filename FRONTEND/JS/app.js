@@ -91,3 +91,146 @@ document.querySelectorAll('.card').forEach(card => {
 function irEnlaces(url){
     window.open(url, "_blank")
 }
+
+
+/* ============================================================
+   APP.JS — Lógica página principal KLYDY Technology
+   Depende de: Swiper 11 (cargado antes en el HTML)
+   ============================================================ */
+ 
+'use strict';
+ 
+/* ────────────────────────────────────────────────────────────
+   SWIPER — Carrusel de categorías
+   Siempre activo con autoplay · loop infinito
+   Slides visibles según breakpoint
+──────────────────────────────────────────────────────────── */
+ 
+const categoriesSwiper = new Swiper('.categories-swiper', {
+ 
+  /* ── Comportamiento general ── */
+  loop: true,
+  grabCursor: true,
+  centeredSlides: false,
+ 
+  /* ── Autoplay siempre activo ── */
+  autoplay: {
+    delay: 2500,
+    disableOnInteraction: false,   /* sigue después de que el usuario toca */
+    pauseOnMouseEnter: true,       /* pausa al hacer hover */
+  },
+ 
+  /* ── Velocidad de transición (ms) ── */
+  speed: 600,
+ 
+  /* ── Espacio entre slides ── */
+  spaceBetween: 24,
+ 
+  /* ── Slides visibles por breakpoint ── */
+  slidesPerView: 2,                /* móvil: 2 círculos */
+ 
+  breakpoints: {
+    480: {
+      slidesPerView: 3,
+      spaceBetween: 20,
+    },
+    768: {
+      slidesPerView: 4,
+      spaceBetween: 24,
+    },
+    992: {
+      slidesPerView: 5,
+      spaceBetween: 28,
+    },
+    1200: {
+      slidesPerView: 6,
+      spaceBetween: 32,
+    },
+    1400: {
+      slidesPerView: 7,
+      spaceBetween: 32,
+    },
+  },
+ 
+  /* ── Flechas de navegación ── */
+  navigation: {
+    prevEl: '.categories-swiper__prev',
+    nextEl: '.categories-swiper__next',
+  },
+ 
+  /* ── Accesibilidad ── */
+  a11y: {
+    prevSlideMessage: 'Categoría anterior',
+    nextSlideMessage: 'Categoría siguiente',
+  },
+ 
+});
+ 
+ 
+/* ────────────────────────────────────────────────────────────
+   ANIMACIONES DE ENTRADA — Intersection Observer
+   Los elementos se revelan al entrar al viewport
+──────────────────────────────────────────────────────────── */
+ 
+/**
+ * Agrega la clase .is-visible cuando el elemento
+ * entra al viewport. El CSS maneja la animación.
+ */
+const revealObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        /* deja de observar una vez que ya se reveló */
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  },
+  {
+    threshold: 0.15,   /* se activa cuando el 15% del elemento es visible */
+    rootMargin: '0px 0px -40px 0px',
+  }
+);
+ 
+/* Elementos a animar al hacer scroll */
+const revealTargets = document.querySelectorAll(
+  '.section-hero, .section-categories, .role-card'
+);
+ 
+revealTargets.forEach((el) => revealObserver.observe(el));
+ 
+ 
+/* ────────────────────────────────────────────────────────────
+   REDUCCIÓN DE MOVIMIENTO — respeta preferencias del usuario
+   Si el usuario tiene activado "reduce motion", desactiva
+   el autoplay y las animaciones de flotación del hero
+──────────────────────────────────────────────────────────── */
+ 
+const prefersReducedMotion = window.matchMedia(
+  '(prefers-reduced-motion: reduce)'
+);
+ 
+if (prefersReducedMotion.matches) {
+  /* Detiene autoplay */
+  categoriesSwiper.autoplay.stop();
+ 
+  /* Quita la animación de flotación del hero */
+  const heroImg = document.querySelector('.hero__img');
+  if (heroImg) {
+    heroImg.style.animation = 'none';
+  }
+}
+ 
+ 
+/* ────────────────────────────────────────────────────────────
+   UTILIDAD — ejecutar cuando el DOM está listo
+──────────────────────────────────────────────────────────── */
+ 
+document.addEventListener('DOMContentLoaded', () => {
+ 
+  /* Confirma en consola que todo cargó correctamente */
+  console.log('%c KLYDY Technology — app.js cargado ✓', 
+    'color: #00f0c8; font-family: monospace; font-weight: bold;'
+  );
+ 
+});
