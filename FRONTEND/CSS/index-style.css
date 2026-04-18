@@ -1,13 +1,10 @@
 /* ============================================================
    INDEX.CSS — Página principal KLYDY Technology
-   Depende de: base.css (variables, body, neon-lines)
+   Depende de: nav-footer.css (variables, body, neon-lines)
    Fuentes:    Orbitron (títulos) · Inter (cuerpo)
    ============================================================ */
  
- 
-/* ────────────────────────────────────────────────────────────
-   UTILIDADES COMPARTIDAS
-──────────────────────────────────────────────────────────── */
+
  
 /* Asegura que z-index del contenido esté sobre neon-lines */
 main {
@@ -16,9 +13,9 @@ main {
 }
  
  
-/* ============================================================
-   SECCIÓN 1 — HERO
-   ============================================================ */
+
+   /* SECCIÓN 1 — HERO */
+   
  
 .section-hero {
   min-height: 50vh;
@@ -176,181 +173,240 @@ main {
     padding: 1rem 1.25rem 2rem;
   }
 }
- 
- 
-/* ============================================================
-   SECCIÓN 2 — CATEGORÍAS (CARRUSEL SWIPER)
-   ============================================================ */
- 
+
+
+
+   /* SECCIÓN 2 — CATEGORÍAS */
+
+
 .section-categories {
   padding: 4rem 0;
   position: relative;
 }
- 
-/* Swiper container */
-.categories-swiper {
-  padding: 1.5rem 0.5rem !important;
-  /* espacio para que el glow no se corte */
-  overflow: visible !important;
-}
- 
-/* Cada slide se centra */
-.categories__item {
-  display: flex;
-  justify-content: center;
-  list-style: none;
-}
- 
-/* Link envolvente sin decoración */
-.categories__link {
-  text-decoration: none;
-  display: block;
-}
- 
-/* ── Círculo ── */
-.categories__circle {
-  position: relative;
-  width: 130px;
-  height: 130px;
-  border-radius: 50%;
+
+/* ── Desktop: carrusel 3D ── */
+.categories-scene-wrap {
+  width: 100%;
   overflow: hidden;
+  padding: 70px 0;
+}
+
+.categories-scene {
+  perspective: 1100px;
+  perspective-origin: 50% 45%;
+  width: 100%;
+  height: 280px;
+  position: relative;
+}
+
+.categories-carousel {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform-style: preserve-3d;
+  transform: translate(-50%, -50%);
+  width: 0; height: 0;
+}
+
+.cat-card {
+  position: absolute;
+  width: 190px;
+  height: 250px;
+  margin: -125px -95px;
+  border-radius: 16px;
+  background: var(--bg-surface);
+  border: 1.5px solid rgba(255,255,255,0.08);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0.4rem;
-  /* Borde neón inicial: cyan */
-  border: 2px solid var(--neon-cyan);
-  box-shadow: 0 0 12px rgba(0, 240, 200, 0.30),
-              inset 0 0 20px rgba(0, 240, 200, 0.05);
-  cursor: pointer;
-  transition: var(--transition-slow);
+  gap: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  will-change: transform, opacity;
 }
- 
-/* Imagen de fondo del círculo */
-.categories__bg-img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.35;
-  transition: var(--transition-slow);
-}
- 
-/* Overlay oscuro sobre la imagen */
-.categories__circle::before {
+
+.cat-card::before {
   content: '';
   position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    circle at center,
-    rgba(13, 18, 37, 0.55) 0%,
-    rgba(5, 13, 31, 0.80) 100%
-  );
-  z-index: 1;
-  border-radius: 50%;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--gradient-cyan-purple);
+  opacity: 0;
+  transition: opacity 0.3s;
 }
- 
-/* Ícono SVG */
-.categories__icon {
-  position: relative;
-  z-index: 2;
-  color: var(--neon-cyan);
+
+.cat-card.is-front::before { opacity: 1; }
+
+.cat-card__num {
+  position: absolute;
+  top: 12px; left: 14px;
+  font-family: var(--font-heading);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: rgba(0, 240, 200, 0.35);
+}
+
+.cat-card__icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: var(--transition-normal);
+  color: rgba(255, 255, 255, 0.2);
+  transition: color 0.3s;
 }
- 
-/* Nombre de la categoría */
-.categories__name {
-  position: relative;
-  z-index: 2;
+
+.cat-card__line {
+  width: 28px;
+  height: 1.5px;
+  background: var(--gradient-cyan-purple);
+  border-radius: 2px;
+}
+
+.cat-card__name {
   font-family: var(--font-body);
-  font-size: 0.7rem;
-  font-weight: 600;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  text-align: center;
+  padding: 0 1rem;
+  line-height: 1.3;
+}
+
+.cat-card__tag {
+  font-family: var(--font-body);
+  font-size: 8px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.cat-card.is-front .cat-card__tag { opacity: 1; }
+
+/* ── Móvil: grid estático 7 tarjetas ── */
+.categories-mobile-grid {
+  display: none;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  padding: 0 1.25rem;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* La tarjeta 7 se centra sola en la última fila */
+.categories-mobile-grid .mg-card:last-child {
+  grid-column: 2 / 3;
+}
+
+.mg-card {
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-cyan);
+  border-radius: 14px;
+  padding: 18px 10px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+
+.mg-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--gradient-cyan-purple);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s;
+}
+
+.mg-card:hover {
+  border-color: var(--border-purple);
+  box-shadow: var(--glow-purple);
+  transform: translateY(-4px);
+}
+
+.mg-card:hover::before { transform: scaleX(1); }
+
+.mg-card:hover .mg-icon { color: var(--neon-purple); }
+
+.mg-card__num {
+  font-family: var(--font-heading);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: rgba(0, 240, 200, 0.4);
+  align-self: flex-start;
+}
+
+.mg-card__icon {
+  display: flex;
+  color: var(--neon-cyan);
+  transition: color 0.3s;
+}
+
+.mg-card__name {
+  font-family: var(--font-body);
+  font-size: 9px;
+  font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--text-primary);
   text-align: center;
   line-height: 1.3;
-  padding: 0 0.5rem;
-  transition: var(--transition-normal);
 }
- 
-/* ── HOVER: cyan → purple + escala + glow ── */
-.categories__link:hover .categories__circle,
-.categories__link:focus-visible .categories__circle {
-  border-color: var(--neon-purple);
-  box-shadow: 0 0 20px rgba(188, 79, 232, 0.50),
-              0 0 40px rgba(188, 79, 232, 0.20),
-              inset 0 0 20px rgba(188, 79, 232, 0.08);
-  transform: scale(1.10);
-}
- 
-.categories__link:hover .categories__bg-img {
-  opacity: 0.55;
-}
- 
-.categories__link:hover .categories__icon {
-  color: var(--neon-purple);
-  transform: scale(1.15);
-}
- 
-.categories__link:hover .categories__name {
-  color: var(--neon-purple);
-}
- 
-/* ── Flechas de navegación ── */
-.categories-swiper__prev,
-.categories-swiper__next {
-  color: var(--neon-cyan) !important;
-}
- 
-.categories-swiper__prev::after,
-.categories-swiper__next::after {
-  font-size: 1.2rem !important;
-}
- 
-.swiper-button-prev,
-.swiper-button-next {
-  transition: var(--transition-normal);
-}
- 
-.swiper-button-prev:hover,
-.swiper-button-next:hover {
-  color: var(--neon-purple) !important;
-}
- 
-/* ── RESPONSIVE CATEGORÍAS ── */
+
+/* ── Responsive ── */
 @media (max-width: 767.98px) {
-  .categories__circle {
-    width: 110px;
-    height: 110px;
-  }
- 
-  .categories__name {
-    font-size: 0.62rem;
-  }
+  .categories-scene-wrap { display: none; }
+  .categories-mobile-grid { display: grid; }
+}
+
+.categories-controls {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 1.5rem;
+}
+
+.cat-ctrl-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-cyan);
+  color: var(--neon-cyan);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition-normal);
+}
+
+.cat-ctrl-btn:hover {
+  border-color: var(--neon-purple);
+  box-shadow: var(--glow-purple);
+  color: var(--neon-purple);
+}
+
+/* Ocultar en móvil ya que ahí va el grid */
+@media (max-width: 767.98px) {
+  .categories-controls { display: none; }
 }
  
-@media (max-width: 575.98px) {
-  .categories__circle {
-    width: 95px;
-    height: 95px;
-  }
  
-  .categories__icon svg {
-    width: 26px;
-    height: 26px;
-  }
-}
+
  
- 
-/* ============================================================
-   SECCIÓN 3 — USOS SEGÚN ROL
-   ============================================================ */
+
+   /* SECCIÓN 3 — USOS SEGÚN ROL */
+
  
 .section-roles {
   padding: 5rem 0;
@@ -561,43 +617,75 @@ main {
  
 /* ── RESPONSIVE TARJETAS DE ROLES ── */
  
-/* Tablet: tarjetas apiladas verticalmente */
+
+
+/* Tablet media (768px - 991px): imagen más pequeña */
+@media (max-width: 991.98px) {
+  .role-card__media {
+    flex: 0 0 38%;
+    max-width: 38%;
+  }
+
+  .role-card__body {
+    padding: 1.25rem 1rem;
+  }
+
+  .role-card__title {
+    font-size: 0.82rem;
+  }
+
+  .role-card__desc {
+    font-size: 0.78rem;
+  }
+}
+
+/* Tablet pequeña (576px - 767px): apilado vertical */
 @media (max-width: 767.98px) {
+  .role-card {
+    min-height: auto;
+  }
+
   .role-card__inner,
   .role-card__inner--reverse {
     flex-direction: column;
   }
- 
+
   .role-card__media {
-    flex: 0 0 200px;
+    flex: 0 0 220px;
     max-width: 100%;
-    height: 200px;
+    height: 220px;
+    width: 100%;
   }
- 
+
+  .role-card__img {
+    object-position: center center;
+  }
+
   .role-card__body {
     padding: 1.25rem;
   }
- 
+
   .role-card__title {
     font-size: 0.9rem;
   }
 }
- 
+
 /* Móvil pequeño */
 @media (max-width: 575.98px) {
   .section-roles {
     padding: 3rem 0;
   }
- 
+
   .role-card__media {
-    height: 170px;
+    flex: 0 0 180px;
+    height: 180px;
   }
- 
+
   .role-card__body {
     padding: 1rem;
     gap: 0.6rem;
   }
- 
+
   .role-card__btn {
     width: 100%;
     justify-content: center;
@@ -605,18 +693,17 @@ main {
 }
  
  
-/* ============================================================
-   ANIMACIONES DE ENTRADA — controladas por app.js
-   IntersectionObserver agrega .is-visible al entrar al viewport
-   ============================================================ */
+ 
+
+   /* ANIMACIONES DE ENTRADA — controladas por app.js */
+   
  
 /* Estado inicial: oculto y desplazado hacia abajo */
-.section-hero,
-.section-categories,
-.role-card {
+.js-loaded .section-hero,
+.js-loaded .section-categories,
+.js-loaded .role-card {
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
 }
  
 /* Estado visible: aparece suavemente */
