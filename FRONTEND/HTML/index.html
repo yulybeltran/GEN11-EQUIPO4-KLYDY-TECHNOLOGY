@@ -19,9 +19,6 @@
   <!-- Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet" />
 
-  <!-- Swiper CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
   <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="../images/klydy-favicon-32.png" />
 
@@ -61,31 +58,26 @@
   </div>
 
 
-  <!-- ═══════════════════════════════════════════════════════
-       MAIN — contenido principal de la página
-  ═══════════════════════════════════════════════════════════ -->
+
   <main id="main-content">
 
 
-    <!-- ═══════════════════════════════════════════════════════
-         SECCIÓN 1 — HERO
-         Altura: 50vh
-         Col izquierda: imagen PNG sin fondo
-         Col derecha:   título (uppercase via CSS) · subtítulo · CTA
-    ═══════════════════════════════════════════════════════════ -->
+
+    <!-- SECCIÓN 1 — HERO -->
+
     <section id="hero" class="section-hero" aria-label="Presentación principal">
 
       <div class="container-fluid h-100">
         <div class="row align-items-center h-100 g-0">
 
-          <!-- ── Columna izquierda: imagen del producto ── -->
+          <!-- ──  imagen principal ── -->
           <div class="col-12 col-lg-6 hero__media">
             <img src="../images/images-index/hero-index.png"
               alt="Laptop gaming ROG Strix con auriculares de alto rendimiento" class="hero__img" width="700"
               height="500" loading="eager" />
           </div>
 
-          <!-- ── Columna derecha: texto y CTA ── -->
+          <!-- ──  texto y CTA ── -->
           <div class="col-12 col-lg-6 hero__content">
 
             <!-- text-transform: uppercase se aplica desde index.css -->
@@ -117,174 +109,39 @@
     <!-- /SECCIÓN 1 HERO -->
 
 
-    <!-- ═══════════════════════════════════════════════════════
-         SECCIÓN 2 — CATEGORÍAS
-         Swiper siempre activo con autoplay
-         Cada slide: círculo con imagen de fondo + ícono + nombre
-         Hover: borde cyan → purple + escala + glow
-    ═══════════════════════════════════════════════════════════ -->
+<!-- CATEGORÍAS -->
+         
+
     <section id="categorias" class="section-categories" aria-label="Categorías de productos">
 
-      <div class="container">
+      <!-- DESKTOP: carrusel 3D -->
+      <div class="categories-scene-wrap">
+        <div class="categories-scene">
+          <div class="categories-carousel" id="categoriesCarousel"></div>
+        </div>
+      </div>
+      <!-- Controles carrusel 3D (solo desktop) -->
+      <div class="categories-controls">
+        <button class="cat-ctrl-btn" id="catPrev" aria-label="Categoría anterior">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M15 18l-6-6 6-6" />
+          </svg>
+        </button>
+        <button class="cat-ctrl-btn" id="catNext" aria-label="Categoría siguiente">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 18l6-6-6-6" />
+          </svg>
+        </button>
+      </div>
 
-        <!-- Título oculto visualmente, accesible para lectores de pantalla -->
-        <h2 class="visually-hidden">Categorías de productos</h2>
-
-        <!-- Swiper container -->
-        <div class="swiper categories-swiper">
-
-          <ul class="swiper-wrapper categories__list" role="list">
-
-            <!-- ── Laptops Gaming ── -->
-            <li class="swiper-slide categories__item" role="listitem">
-              <a href="/categoria/laptops-gaming" class="categories__link" aria-label="Ver laptops gaming">
-                <div class="categories__circle">
-                  <img src="../images/categories/cat-laptops.jpg" alt="" class="categories__bg-img" aria-hidden="true"
-                    loading="lazy" />
-                  <span class="categories__icon" aria-hidden="true">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                      stroke-width="1.5" width="32" height="32">
-                      <rect x="2" y="4" width="20" height="13" rx="2" />
-                      <path d="M0 21h24" />
-                    </svg>
-                  </span>
-                  <span class="categories__name">Laptops Gaming</span>
-                </div>
-              </a>
-            </li>
-
-            <!-- ── Tarjetas Gráficas ── -->
-            <li class="swiper-slide categories__item" role="listitem">
-              <a href="/categoria/tarjetas-graficas" class="categories__link" aria-label="Ver tarjetas gráficas">
-                <div class="categories__circle">
-                  <img src="../images/categories/cat-gpu.jpg" alt="" class="categories__bg-img" aria-hidden="true"
-                    loading="lazy" />
-                  <span class="categories__icon" aria-hidden="true">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                      stroke-width="1.5" width="32" height="32">
-                      <rect x="2" y="6" width="20" height="12" rx="2" />
-                      <path d="M6 6V4M10 6V4M14 6V4M18 6V4M6 18v2M10 18v2M14 18v2M18 18v2" />
-                    </svg>
-                  </span>
-                  <span class="categories__name">Tarjetas Gráficas</span>
-                </div>
-              </a>
-            </li>
-
-            <!-- ── Teclados ── -->
-            <li class="swiper-slide categories__item" role="listitem">
-              <a href="/categoria/teclados" class="categories__link" aria-label="Ver teclados">
-                <div class="categories__circle">
-                  <img src="../images/categories/cat-teclados.jpg" alt="" class="categories__bg-img" aria-hidden="true"
-                    loading="lazy" />
-                  <span class="categories__icon" aria-hidden="true">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                      stroke-width="1.5" width="32" height="32">
-                      <rect x="2" y="6" width="20" height="12" rx="2" />
-                      <path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M6 14h12" />
-                    </svg>
-                  </span>
-                  <span class="categories__name">Teclados</span>
-                </div>
-              </a>
-            </li>
-
-            <!-- ── Ratones ── -->
-            <li class="swiper-slide categories__item" role="listitem">
-              <a href="/categoria/ratones" class="categories__link" aria-label="Ver ratones">
-                <div class="categories__circle">
-                  <img src="../images/categories/cat-ratones.jpg" alt="" class="categories__bg-img" aria-hidden="true"
-                    loading="lazy" />
-                  <span class="categories__icon" aria-hidden="true">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                      stroke-width="1.5" width="32" height="32">
-                      <path d="M12 2a7 7 0 0 1 7 7v6a7 7 0 0 1-14 0V9a7 7 0 0 1 7-7z" />
-                      <line x1="12" y1="2" x2="12" y2="9" />
-                    </svg>
-                  </span>
-                  <span class="categories__name">Ratones</span>
-                </div>
-              </a>
-            </li>
-
-            <!-- ── Auriculares ── -->
-            <li class="swiper-slide categories__item" role="listitem">
-              <a href="/categoria/auriculares" class="categories__link" aria-label="Ver auriculares">
-                <div class="categories__circle">
-                  <img src="../images/categories/cat-auriculares.jpg" alt="" class="categories__bg-img"
-                    aria-hidden="true" loading="lazy" />
-                  <span class="categories__icon" aria-hidden="true">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                      stroke-width="1.5" width="32" height="32">
-                      <path d="M3 18v-6a9 9 0 0 1 18 0v6" />
-                      <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3z" />
-                      <path d="M3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z" />
-                    </svg>
-                  </span>
-                  <span class="categories__name">Auriculares</span>
-                </div>
-              </a>
-            </li>
-
-            <!-- ── Componentes ── -->
-            <li class="swiper-slide categories__item" role="listitem">
-              <a href="/categoria/componentes" class="categories__link" aria-label="Ver componentes">
-                <div class="categories__circle">
-                  <img src="../images/categories/cat-componentes.jpg" alt="" class="categories__bg-img"
-                    aria-hidden="true" loading="lazy" />
-                  <span class="categories__icon" aria-hidden="true">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                      stroke-width="1.5" width="32" height="32">
-                      <rect x="4" y="4" width="6" height="6" rx="1" />
-                      <rect x="14" y="4" width="6" height="6" rx="1" />
-                      <rect x="4" y="14" width="6" height="6" rx="1" />
-                      <rect x="14" y="14" width="6" height="6" rx="1" />
-                    </svg>
-                  </span>
-                  <span class="categories__name">Componentes</span>
-                </div>
-              </a>
-            </li>
-
-            <!-- ── Monitores ── -->
-            <li class="swiper-slide categories__item" role="listitem">
-              <a href="/categoria/monitores" class="categories__link" aria-label="Ver monitores">
-                <div class="categories__circle">
-                  <img src="../images/categories/cat-monitores.jpg" alt="" class="categories__bg-img" aria-hidden="true"
-                    loading="lazy" />
-                  <span class="categories__icon" aria-hidden="true">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                      stroke-width="1.5" width="32" height="32">
-                      <rect x="2" y="3" width="20" height="14" rx="2" />
-                      <path d="M8 21h8M12 17v4" />
-                    </svg>
-                  </span>
-                  <span class="categories__name">Monitores</span>
-                </div>
-              </a>
-            </li>
-
-          </ul><!-- /swiper-wrapper -->
-
-          <!-- Flechas de navegación -->
-          <button class="swiper-button-prev categories-swiper__prev" aria-label="Ver categoría anterior"></button>
-          <button class="swiper-button-next categories-swiper__next" aria-label="Ver categoría siguiente"></button>
-
-        </div><!-- /swiper -->
-
-      </div><!-- /container -->
+      <!-- MÓVIL: grid estático -->
+      <div class="categories-mobile-grid" id="categoriesMobileGrid"></div>
 
     </section>
     <!-- /SECCIÓN 2 CATEGORÍAS -->
 
 
-    <!-- ═══════════════════════════════════════════════════════
-         SECCIÓN 3 — USOS SEGÚN ROL
-         Grid 2×2 · justify-content-center centra si es impar
-         Imagen y texto lado a lado · posición alternada por tarjeta
-         Modificador de color por rol: --cyan · --purple · --pink · --blue
-         Overlay aplicado con ::before desde CSS
-    ═══════════════════════════════════════════════════════════ -->
+    <!-- USOS SEGÚN ROL -->
     <section id="usos" class="section-roles" aria-label="Tecnología según tu perfil de uso">
 
       <div class="container">
@@ -457,25 +314,21 @@
       </div><!-- /container -->
 
     </section>
-    <!-- /SECCIÓN 3 USOS SEGÚN ROL -->
+  
 
 
   </main>
 
 
 
-  <!-- ─────────────────────────────────────────────────────────
-       SCRIPTS — orden de ejecución: Bootstrap → Swiper → app.js
-  ──────────────────────────────────────────────────────────── -->
 
-  <!-- 1. Bootstrap JS Bundle (incluye Popper) -->
+  <!-- Bootstrap  -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- 2. Swiper JS -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-  <!-- 3. JS propio (inicialización de Swiper + lógica de la página) -->
-  <script src="../JS/app.js"></script>
+
+
+  <script src="../JS/inicio.js"></script>
 
 </body>
 
