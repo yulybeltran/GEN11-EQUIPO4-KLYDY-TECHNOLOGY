@@ -216,22 +216,21 @@
       });
  
       /* ── Lista temporal de productos (vive en memoria mientras la página esté abierta)
-           📌 INTEGRACIÓN FUTURA: este array desaparece. En su lugar harás un
+           INTEGRACIÓN FUTURA: este array desaparece. En su lugar se hara un
            fetch GET /api/productos para traer la lista desde la BD.
       ─────────────────────────────────────────────────────────────────────────── */
       const listaProductos = [];
  
       /* Muestra el estado actual de la lista en consola */
       function imprimirLista() {
-        console.groupCollapsed(
-          `%c📦 Lista de productos (${listaProductos.length} en total)`,
-          'color: #0d6efd; font-weight: bold; font-size: 13px;'
-        );
-        listaProductos.forEach((p, i) => {
-          console.log(`%c #${i + 1}`, 'color: #6c757d; font-weight:bold;', p);
-        });
-        console.groupEnd();
-      }
+  console.groupCollapsed(
+    `Lista de productos (${listaProductos.length} en total)`
+  );
+  listaProductos.forEach((p, i) => {
+    console.log(`#${i + 1}`, p);
+  });
+  console.groupEnd();
+}
  
       /* ── Envío del formulario ─────────────────────────── */
       form.addEventListener('submit', (e) => {
@@ -255,7 +254,7 @@
           return;
         }
  
-        /* ✅ Formulario válido — construir el objeto producto */
+        /*  Formulario válido — construir el objeto producto */
         const nuevoProducto = {
           id:          listaProductos.length + 1,          // ID temporal (la BD lo generará)
           nombre:      inputNombre.value.trim(),
@@ -277,14 +276,13 @@
  
         // Mostrar en consola
         console.log(
-          '%c✅ Producto agregado:',
-          'color: #198754; font-weight: bold; font-size: 13px;',
+          ' Producto agregado:',
           nuevoProducto
         );
         imprimirLista();
  
         /*
-          📌 CUANDO TENGAS LA API — reemplaza las dos líneas de arriba por:
+           CUANDO SE TENGA LA API — se reemplaza las dos líneas de arriba por:
  
           const fd = new FormData();
           Object.entries(nuevoProducto).forEach(([k, v]) => fd.append(k, v));
@@ -293,13 +291,13 @@
           fetch('/api/productos', { method: 'POST', body: fd })
             .then(r => r.json())
             .then(data => {
-              console.log('✅ Guardado en BD:', data);
+              console.log(' Guardado en BD:', data);
               // aquí puedes actualizar la tabla de productos en pantalla
             })
-            .catch(err => console.error('❌ Error al guardar:', err));
+            .catch(err => console.error('Error al guardar:', err));
         */
  
-        alert(`✅ Producto "${nuevoProducto.nombre}" agregado.\nAbre la consola (F12) para ver la lista completa.`);
+        alert(`Producto "${nuevoProducto.nombre}" agregado.`);
       });
  
       /* ── Botón Cancelar ───────────────────────────────── */
