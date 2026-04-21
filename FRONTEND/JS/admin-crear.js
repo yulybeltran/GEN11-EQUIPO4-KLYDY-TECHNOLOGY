@@ -155,6 +155,12 @@
 
   radiosUso.forEach(r => r.addEventListener('change', validarUso));
 
+  descTextarea.addEventListener('blur', () => {
+  descTextarea.value.trim()
+    ? mostrarValido(descTextarea)
+    : mostrarError(descTextarea, 'La descripción es obligatoria (máx. 500 caracteres).');
+});
+
   /* ── Zona de carga de imagen ──────────────────────── */
 
   // Abrir selector al hacer clic en la zona o presionar Enter/Espacio

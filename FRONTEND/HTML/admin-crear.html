@@ -14,7 +14,8 @@
     rel="stylesheet" />
 
   <!-- Bootstrap 5 CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
   <!-- Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet" />
@@ -60,252 +61,210 @@
 
 
 
- <main>
-  <section class="py-4 py-md-5">
-    <div class="container">
+  <main>
+    <section class="py-4 py-md-5">
+      <div class="container">
 
-      <!-- TÍTULO -->
-      <h1 class="mb-4">Crear producto</h1>
+        <!-- TÍTULO -->
+        <h1 class="mb-4">Crear producto</h1>
 
-      <form id="formCrearProducto" novalidate>
+        <form id="formCrearProducto" novalidate>
 
-        <!-- ═══════════════════════════════
+          <!-- ═══════════════════════════════
              SECCIÓN 1: INFORMACIÓN BÁSICA
         ═══════════════════════════════ -->
-        <h5 class="mb-3">Información básica</h5>
+          <h5 class="mb-3">Información básica</h5>
 
-        <!-- Nombre | Marca -->
-        <div class="row g-3 mb-3">
+          <!-- Nombre | Marca -->
+          <div class="row g-3 mb-3">
 
-          <div class="col-12 col-md-6">
-            <label for="nombre" class="form-label fw-semibold">
-              Nombre <span class="text-danger">*</span>
-            </label>
-            <input
-              type="text"
-              class="form-control"
-              id="nombre"
-              name="nombre"
-              placeholder="Ingresa nombre del producto"
-              maxlength="100"
-              required
-            />
-            <div class="invalid-feedback">
-              El nombre es obligatorio (máx. 100 caracteres).
+            <div class="col-12 col-md-6">
+              <label for="nombre" class="form-label fw-semibold">
+                Nombre <span class="text-danger">*</span>
+              </label>
+              <input type="text" class="form-control" id="nombre" name="nombre"
+                placeholder="Ingresa nombre del producto" maxlength="100" required />
+              <div class="invalid-feedback">
+                El nombre es obligatorio (máx. 100 caracteres).
+              </div>
             </div>
+
+            <div class="col-12 col-md-6">
+              <label for="marca" class="form-label fw-semibold">
+                Marca <span class="text-danger">*</span>
+              </label>
+              <input type="text" class="form-control" id="marca" name="marca" placeholder="Ingresa la marca"
+                maxlength="60" required />
+              <div class="invalid-feedback">
+                La marca es obligatoria (máx. 60 caracteres).
+              </div>
+            </div>
+
           </div>
 
-          <div class="col-12 col-md-6">
-            <label for="marca" class="form-label fw-semibold">
-              Marca <span class="text-danger">*</span>
-            </label>
-            <input
-              type="text"
-              class="form-control"
-              id="marca"
-              name="marca"
-              placeholder="Ingresa la marca"
-              maxlength="60"
-              required
-            />
-            <div class="invalid-feedback">
-              La marca es obligatoria (máx. 60 caracteres).
-            </div>
-          </div>
-
-        </div>
-
-        <!-- ═══════════════════════════════
+          <!-- ═══════════════════════════════
              SECCIÓN 2: DETALLES DEL PRODUCTO
         ═══════════════════════════════ -->
-        <h5 class="mb-3">Detalles del producto</h5>
+          <h5 class="mb-3">Detalles del producto</h5>
 
-        <!-- Cantidad | Precio | Categoría -->
-        <div class="row g-3 mb-3">
+          <!-- Cantidad | Precio | Categoría -->
+          <div class="row g-3 mb-3">
 
-          <div class="col-12 col-md-4">
-            <label for="cantidad" class="form-label fw-semibold">
-              Cantidad <span class="text-danger">*</span>
-            </label>
-            <input
-              type="number"
-              class="form-control"
-              id="cantidad"
-              name="cantidad"
-              placeholder="Ingresa la cantidad"
-              min="0"
-              max="99999"
-              step="1"
-              required
-            />
-            <div class="invalid-feedback">
-              Ingresa una cantidad válida (≥ 0).
-            </div>
-          </div>
-
-          <div class="col-12 col-md-4">
-            <label for="precio" class="form-label fw-semibold">
-              Precio (COP) <span class="text-danger">*</span>
-            </label>
-            <div class="input-group">
-              <span class="input-group-text">$</span>
-              <input
-                type="text"
-                class="form-control"
-                id="precio"
-                name="precio"
-                placeholder="Ingresa el precio"
-                inputmode="numeric"
-                maxlength="15"
-                required
-              />
-            </div>
-            <div class="invalid-feedback d-block" id="precioError" style="display:none !important;"></div>
-          </div>
-
-          <div class="col-12 col-md-4">
-            <label for="categoria" class="form-label fw-semibold">
-              Categoría <span class="text-danger">*</span>
-            </label>
-            <select class="form-select" id="categoria" name="categoria" required>
-              <option value="" selected disabled>Selecciona categoría</option>
-              <option value="laptops">Laptops</option>
-              <option value="mouses">Mouses</option>
-              <option value="smartwatches">Smartwatches</option>
-              <option value="audio">Audio</option>
-              <option value="teclados">Teclados</option>
-              <option value="tarjetas">Tarjetas Gráficas</option>
-              <option value="accesorios">Accesorios</option>
-            </select>
-            <div class="invalid-feedback">
-              Selecciona una categoría.
-            </div>
-          </div>
-
-        </div>
-
-        <!-- Uso -->
-        <div class="row g-3 mb-3 mt-3">
-          <div class="col-12">
-            <fieldset>
-              <legend class="form-label  mb-2">
-                Según el uso <span class="text-danger">*</span>
-              </legend>
-
-              <div class="d-flex flex-wrap gap-3">
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="uso" id="usoTrabajo" value="trabajo" required />
-                  <label class="form-check-label" for="usoTrabajo">Trabajo</label>
-                </div>
-
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="uso" id="usoEstudio" value="estudio" />
-                  <label class="form-check-label" for="usoEstudio">Estudio</label>
-                </div>
-
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="uso" id="usoGamer" value="gamer" />
-                  <label class="form-check-label" for="usoGamer">Gamer</label>
-                </div>
-
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="uso" id="usoGeneral" value="general" />
-                  <label class="form-check-label" for="usoGeneral">General</label>
-                </div>
+            <div class="col-12 col-md-4">
+              <label for="cantidad" class="form-label fw-semibold">
+                Cantidad <span class="text-danger">*</span>
+              </label>
+              <input type="number" class="form-control" id="cantidad" name="cantidad" placeholder="Ingresa la cantidad"
+                min="0" max="99999" step="1" required />
+              <div class="invalid-feedback">
+                Ingresa una cantidad válida (≥ 0).
               </div>
+            </div>
 
-              <div class="text-danger small mt-1" id="usoError" style="display:none;">
-                Selecciona un tipo de uso.
+            <div class="col-12 col-md-4">
+              <label for="precio" class="form-label fw-semibold">
+                Precio (COP) <span class="text-danger">*</span>
+              </label>
+              <div class="input-group">
+                <span class="input-group-text">$</span>
+                <input type="text" class="form-control" id="precio" name="precio" placeholder="Ingresa el precio"
+                  inputmode="numeric" maxlength="15" required />
               </div>
-            </fieldset>
-          </div>
-        </div>
+              <div class="invalid-feedback d-block" id="precioError" style="display:none !important;"></div>
+            </div>
 
-        <!-- ═══════════════════════════════
+            <div class="col-12 col-md-4">
+              <label for="categoria" class="form-label fw-semibold">
+                Categoría <span class="text-danger">*</span>
+              </label>
+              <select class="form-select" id="categoria" name="categoria" required>
+                <option value="" selected disabled>Selecciona categoría</option>
+                <option value="laptops">Laptops</option>
+                <option value="mouses">Mouses</option>
+                <option value="smartwatches">Smartwatches</option>
+                <option value="audio">Audio</option>
+                <option value="teclados">Teclados</option>
+                <option value="tarjetas">Tarjetas Gráficas</option>
+                <option value="accesorios">Accesorios</option>
+              </select>
+              <div class="invalid-feedback">
+                Selecciona una categoría.
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Uso -->
+          <div class="row g-3 mb-3 mt-3">
+            <div class="col-12">
+              <fieldset>
+                <legend class="form-label  mb-2">
+                  Según el uso <span class="text-danger">*</span>
+                </legend>
+
+                <div class="d-flex flex-wrap gap-3">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="uso" id="usoTrabajo" value="trabajo" required />
+                    <label class="form-check-label" for="usoTrabajo">Trabajo</label>
+                  </div>
+
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="uso" id="usoEstudio" value="estudio" />
+                    <label class="form-check-label" for="usoEstudio">Estudio</label>
+                  </div>
+
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="uso" id="usoGamer" value="gamer" />
+                    <label class="form-check-label" for="usoGamer">Gamer</label>
+                  </div>
+
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="uso" id="usoGeneral" value="general" />
+                    <label class="form-check-label" for="usoGeneral">General</label>
+                  </div>
+                </div>
+
+                <div class="text-danger small mt-1" id="usoError" style="display:none;">
+                  Selecciona un tipo de uso.
+                </div>
+              </fieldset>
+            </div>
+          </div>
+
+          <!-- ═══════════════════════════════
              SECCIÓN 3: IMAGEN
         ═══════════════════════════════ -->
-        <h5 class="mb-3 mt-5">Imagen del producto</h5>
+          <h5 class="mb-3 mt-5">Imagen del producto</h5>
 
-        <div class="row g-3 mb-3">
-          <div class="col-12 col-md-8">
+          <div class="row g-3 mb-3">
+            <div class="col-12 col-md-8">
 
-            <div
-              id="dropZone"
-              class="border border-2 rounded-3 d-flex flex-column align-items-center justify-content-center p-4 text-center"
-              style="cursor:pointer; min-height: 140px; border-style: dashed !important;"
-            >
-              <i class="bi bi-cloud-arrow-up fs-2 mb-2 text-secondary"></i>
-              <p class="mb-1 text-secondary">
-                Arrastra una imagen o <span class="text-primary fw-semibold">haz clic</span>
-              </p>
-              <p class="small text-muted mb-0">JPG o PNG · Máx. 5 MB</p>
+              <div id="dropZone"
+                class="border border-2 rounded-3 d-flex flex-column align-items-center justify-content-center p-4 text-center"
+                style="cursor:pointer; min-height: 140px; border-style: dashed !important;">
+                <i class="bi bi-cloud-arrow-up fs-2 mb-2 text-secondary"></i>
+                <p class="mb-1 text-secondary">
+                  Arrastra una imagen o <span class="text-primary fw-semibold">haz clic</span>
+                </p>
+                <p class="small text-muted mb-0">JPG o PNG · Máx. 5 MB</p>
 
-              <input
-                type="file"
-                class="d-none"
-                id="imagenProducto"
-                name="imagenProducto"
-                accept=".jpg,.jpeg,.png"
-              />
-            </div>
+                <input type="file" class="d-none" id="imagenProducto" name="imagenProducto" accept=".jpg,.jpeg,.png" />
+              </div>
 
-            <div id="previewContainer" class="mt-3 d-none">
-              <div class="d-flex align-items-center gap-3">
-                <img id="previewImg" class="rounded border" style="max-width: 120px;" />
-                <div>
-                  <p class="small mb-1" id="previewNombre"></p>
-                  <p class="small text-muted" id="previewTamano"></p>
-                  <button type="button" class="btn btn-sm btn-outline-danger" id="btnQuitarImagen">
-                    Quitar
-                  </button>
+              <div id="previewContainer" class="mt-3 d-none">
+                <div class="d-flex align-items-center gap-3">
+                  <img id="previewImg" class="rounded border" style="max-width: 120px;" />
+                  <div>
+                    <p class="small mb-1" id="previewNombre"></p>
+                    <p class="small text-muted" id="previewTamano"></p>
+                    <button type="button" class="btn btn-sm btn-outline-danger" id="btnQuitarImagen">
+                      Quitar
+                    </button>
+                  </div>
                 </div>
               </div>
+
+              <div class="text-danger small mt-1" id="imagenError" style="display:none;"></div>
+
             </div>
-
-            <div class="text-danger small mt-1" id="imagenError" style="display:none;"></div>
-
           </div>
-        </div>
 
-        <!-- ═══════════════════════════════
+          <!-- ═══════════════════════════════
              SECCIÓN 4: DESCRIPCIÓN
         ═══════════════════════════════ -->
-        <h5 class="mb-3 mt-5">Descripción</h5>
+          <h5 class="mb-3 mt-5">Descripción</h5>
 
-        <div class="row g-3 mb-4">
-          <div class="col-12 col-md-8">
-            <textarea
-              class="form-control"
-              id="descripcion"
-              rows="5"
-              placeholder="Descripción del producto..."
-              maxlength="500"
-              required
-            ></textarea>
-            <div class="form-text text-end" id="descContador">0 / 500</div>
+          <div class="row g-3 mb-4">
+            <div class="col-12 col-md-8">
+              <textarea class="form-control" id="descripcion" rows="5" placeholder="Descripción del producto..."
+                maxlength="500" required></textarea>
+              <div class="invalid-feedback">La descripción es obligatoria (máx. 500 caracteres).</div>
+              <div class="form-text text-end" id="descContador">0 / 500</div>
+            </div>
           </div>
-        </div>
 
-        <!-- BOTONES -->
-        <div class="d-flex justify-content-end gap-2 flex-wrap">
-          <button type="button" id="btnCancelar" class="btn btn-outline-secondary px-4">
-            Cancelar
-          </button>
-          <button type="submit" class="btn btn-dark px-4">
-            Crear
-          </button>
-        </div>
+          <!-- BOTONES -->
+          <div class="d-flex justify-content-end gap-2 flex-wrap">
+            <button type="button" id="btnCancelar" class="btn btn-outline-secondary px-4">
+              Cancelar
+            </button>
+            <button type="submit" class="btn btn-dark px-4">
+              Crear
+            </button>
+          </div>
 
-      </form>
-    </div>
-  </section>
-</main>
+        </form>
+      </div>
+    </section>
+  </main>
 
 
 
 
   <!-- Bootstrap  -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
 
 
 
