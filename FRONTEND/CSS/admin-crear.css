@@ -115,7 +115,14 @@ legend {
 
 
 /* Botón principal */
-.btn-dark {
+.btn-dark  {
+  background: var(--gradient-btn);
+  border: none;
+  color: #000;
+  font-weight: 600;
+  transition: var(--transition-fast);
+}
+.btn__info  {
   background: var(--gradient-btn);
   border: none;
   color: #000;
@@ -123,7 +130,12 @@ legend {
   transition: var(--transition-fast);
 }
 
+
 .btn-dark:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--glow-cyan);
+}
+.btn__info:hover {
   transform: translateY(-1px);
   box-shadow: var(--glow-cyan);
 }
