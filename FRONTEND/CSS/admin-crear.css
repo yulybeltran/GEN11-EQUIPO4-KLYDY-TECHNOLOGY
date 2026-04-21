@@ -158,6 +158,11 @@ legend {
   color: var(--text-muted);
 }
 
+#descripcion {
+  resize: vertical;
+  min-height: 120px;
+  max-height: 220px;
+}
 /* ============================================================
    ERRORES
    ============================================================ */
