@@ -1,0 +1,94 @@
+.producto-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: var(--transition-normal);
+  position: relative;
+}
+
+/* Glow sutil */
+.producto-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(120deg, transparent, var(--neon-cyan-10), transparent);
+  opacity: 0;
+  transition: var(--transition-normal);
+}
+
+
+.producto-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  border-color: var(--border-cyan-hover);
+  box-shadow: var(--glow-cyan-lg);
+}
+
+.producto-card:hover::before {
+  opacity: 1;
+}
+
+
+.producto-img-wrapper {
+  height: 180px;
+  overflow: hidden;
+  background: var(--bg-elevated);
+}
+
+.producto-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition-slow);
+}
+
+.producto-card:hover .producto-img {
+  transform: scale(1.1);
+}
+
+
+.producto-nombre {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  color: var(--text-primary);
+}
+
+.producto-marca {
+  font-size: 0.85rem;
+  color: var(--text-primary);
+}
+
+.producto-desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 5px;
+
+  /* truncar texto */
+  display: -webkit-box;
+
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+
+
+.producto-precio {
+  color: var(--neon-cyan);
+  text-shadow: var(--glow-cyan);
+  font-weight: bold;
+}
+
+
+.producto-categoria {
+  display: inline-block;
+  font-size: 0.7rem;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+
+  background: var(--neon-purple-10);
+  color: var(--text-purple);
+  border: 1px solid var(--border-purple);
+
+  margin-bottom: 6px;
+}

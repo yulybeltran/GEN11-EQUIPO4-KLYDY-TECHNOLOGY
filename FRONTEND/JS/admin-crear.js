@@ -156,10 +156,10 @@
   radiosUso.forEach(r => r.addEventListener('change', validarUso));
 
   descTextarea.addEventListener('blur', () => {
-  descTextarea.value.trim()
-    ? mostrarValido(descTextarea)
-    : mostrarError(descTextarea, 'La descripción es obligatoria (máx. 500 caracteres).');
-});
+    descTextarea.value.trim()
+      ? mostrarValido(descTextarea)
+      : mostrarError(descTextarea, 'La descripción es obligatoria (máx. 500 caracteres).');
+  });
 
   /* ── Zona de carga de imagen ──────────────────────── */
 
@@ -192,39 +192,46 @@
     if (inputImagen.files.length) procesarImagen(inputImagen.files[0]);
   });
 
-  function procesarImagen(file) {
-    // Validar tipo
-    const tiposPermitidos = ['image/jpeg', 'image/jpg', 'image/png'];
-    if (!tiposPermitidos.includes(file.type)) {
-      imagenError.textContent = 'Solo se permiten archivos JPG o PNG.';
-      imagenError.style.display = 'block';
-      dropZone.classList.add('border-danger');
-      return;
-    }
+let imagenBase64 = null;
 
-    // Validar tamaño (máx. 5 MB)
-    const maxBytes = 5 * 1024 * 1024;
-    if (file.size > maxBytes) {
-      imagenError.textContent = 'La imagen no puede superar los 5 MB.';
-      imagenError.style.display = 'block';
-      dropZone.classList.add('border-danger');
-      return;
-    }
+function procesarImagen(file) {
 
-    // Todo OK → mostrar vista previa
-    imagenError.style.display = 'none';
-    dropZone.classList.remove('border-danger');
-    dropZone.classList.add('border-success');
-
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      previewImg.src = e.target.result;
-      previewNombre.textContent = file.name;
-      previewTamano.textContent = `${(file.size / 1024).toFixed(1)} KB`;
-      previewContainer.classList.remove('d-none');
-    };
-    reader.readAsDataURL(file);
+  // ✅ Validar tipo
+  const tiposPermitidos = ['image/jpeg', 'image/jpg', 'image/png'];
+  if (!tiposPermitidos.includes(file.type)) {
+    imagenError.textContent = 'Solo se permiten JPG o PNG.';
+    imagenError.style.display = 'block';
+    dropZone.classList.add('border-danger');
+    return;
   }
+
+  // ✅ Validar tamaño
+  const maxBytes = 5 * 1024 * 1024;
+  if (file.size > maxBytes) {
+    imagenError.textContent = 'La imagen no puede superar los 5MB.';
+    imagenError.style.display = 'block';
+    dropZone.classList.add('border-danger');
+    return;
+  }
+
+  // ✅ Todo OK
+  imagenError.style.display = 'none';
+  dropZone.classList.remove('border-danger');
+  dropZone.classList.add('border-success');
+
+  const reader = new FileReader();
+
+  reader.onload = (e) => {
+    imagenBase64 = e.target.result; // 🔥 GUARDAR BASE64
+
+    previewImg.src = imagenBase64;
+    previewNombre.textContent = file.name;
+    previewTamano.textContent = `${(file.size / 1024).toFixed(1)} KB`;
+    previewContainer.classList.remove('d-none');
+  };
+
+  reader.readAsDataURL(file);
+}
 
   // Botón quitar imagen
   btnQuitarImagen.addEventListener('click', () => {
@@ -276,6 +283,7 @@
 
     /*  Formulario válido — construir el objeto producto */
     const nuevoProducto = {
+      imagen: imagenBase64,
       id: listaProductos.length + 1,          // ID temporal (la BD lo generará)
       nombre: inputNombre.value.trim(),
       cantidad: parseInt(inputCantidad.value),
@@ -291,8 +299,19 @@
       creadoEn: new Date().toLocaleString('es-CO'),
     };
 
-    // Agregar a la lista en memoria
-    listaProductos.push(nuevoProducto);
+    // // Agregar a la lista en memoria
+    // listaProductos.push(nuevoProducto);
+    // Obtener lo que ya existe
+    
+    const productosGuardados = JSON.parse(localStorage.getItem('productos')) || [];
+
+    // Agregar nuevo producto
+    productosGuardados.push(nuevoProducto);
+
+    // Guardar otra vez
+    localStorage.setItem('productos', JSON.stringify(productosGuardados));
+
+
 
     // Mostrar en consola
     console.log(
@@ -328,7 +347,7 @@
   document.getElementById('btnCancelar').addEventListener('click', () => {
     if (confirm('¿Deseas cancelar? Los datos ingresados se perderán.')) {
       limpiarFormulario();
-      
+
     }
   });
 
