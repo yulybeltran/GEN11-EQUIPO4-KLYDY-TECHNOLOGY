@@ -72,3 +72,17 @@ document.addEventListener("DOMContentLoaded", function () {
         localStorage.setItem("usuario", JSON.stringify(usuario));
     });
 });
+
+function togglePassword(inInput, icono) {
+    const input = document.getElementById(inInput);
+
+    if (input.type === "password") {
+        input.type = "text";
+        icono.classList.remove("bi-eye");
+        icono.classList.add("bi-eye-slash");
+    } else {
+        input.type = "password";
+        icono.classList.remove("bi-eye-slash");
+        icono.classList.add("bi-eye");
+    }
+}
