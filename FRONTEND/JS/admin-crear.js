@@ -1,6 +1,6 @@
 (() => {
   'use strict';
-
+ 
   /* ── Referencias al DOM ───────────────────────────── */
   const form = document.getElementById('formCrearProducto');
   const inputNombre = document.getElementById('nombre');
@@ -13,7 +13,7 @@
   const descTextarea = document.getElementById('descripcion');
   const descContador = document.getElementById('descContador');
   const precioError = document.getElementById('precioError');
-
+ 
   /* Imagen */
   const dropZone = document.getElementById('dropZone');
   const inputImagen = document.getElementById('imagenProducto');
@@ -23,12 +23,12 @@
   const previewTamano = document.getElementById('previewTamano');
   const btnQuitarImagen = document.getElementById('btnQuitarImagen');
   const imagenError = document.getElementById('imagenError');
-
+ 
   /* ── Contador de caracteres — Descripción ─────────── */
   descTextarea.addEventListener('input', () => {
     descContador.textContent = `${descTextarea.value.length} / 500`;
   });
-
+ 
   /* ── Formateo de precio en tiempo real (COP) ──────── */
   inputPrecio.addEventListener('input', () => {
     // Elimina todo lo que no sea dígito
@@ -36,7 +36,7 @@
     // Formatea con puntos de miles (estilo COP: 1.500.000)
     inputPrecio.value = raw.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
   });
-
+ 
   /* ── Helpers de validación ────────────────────────── */
   function mostrarError(input, mensaje) {
     input.classList.add('is-invalid');
@@ -45,12 +45,12 @@
       ?.querySelector('.invalid-feedback');
     if (fb && mensaje) fb.textContent = mensaje;
   }
-
+ 
   function mostrarValido(input) {
     input.classList.remove('is-invalid');
     input.classList.add('is-valid');
   }
-
+ 
   function limpiarEstado(input) {
     input.classList.remove('is-invalid', 'is-valid');
   }
@@ -68,7 +68,7 @@
     dropZone.classList.remove('border-success', 'border-danger');
     descContador.textContent = '0 / 500';
   }
-
+ 
   /* Validación del precio (acceso especial por el input-group) */
   function validarPrecio() {
     const raw = inputPrecio.value.replace(/\./g, '');
@@ -91,7 +91,7 @@
     precioError.style.display = 'none';
     return true;
   }
-
+ 
   /* Validación de los radios de Uso */
   function validarUso() {
     const seleccionado = [...radiosUso].some(r => r.checked);
@@ -107,7 +107,7 @@
     });
     return true;
   }
-
+ 
   /* Validación de imagen */
   function validarImagen() {
     if (!inputImagen.files || inputImagen.files.length === 0) {
@@ -122,14 +122,14 @@
     dropZone.classList.add('border-success');
     return true;
   }
-
+ 
   /* ── Validación en tiempo real (blur) ─────────────── */
   inputNombre.addEventListener('blur', () => {
     inputNombre.value.trim()
       ? mostrarValido(inputNombre)
       : mostrarError(inputNombre, 'El nombre es obligatorio (máx. 100 caracteres).');
   });
-
+ 
   inputCantidad.addEventListener('blur', () => {
     const v = inputCantidad.value;
     if (v === '' || parseInt(v) < 0 || !Number.isInteger(Number(v))) {
@@ -138,31 +138,31 @@
       mostrarValido(inputCantidad);
     }
   });
-
+ 
   inputPrecio.addEventListener('blur', validarPrecio);
-
+ 
   inputMarca.addEventListener('blur', () => {
     inputMarca.value.trim()
       ? mostrarValido(inputMarca)
       : mostrarError(inputMarca, 'La marca es obligatoria (máx. 60 caracteres).');
   });
-
+ 
   selectCat.addEventListener('change', () => {
     selectCat.value
       ? mostrarValido(selectCat)
       : mostrarError(selectCat, 'Selecciona una categoría.');
   });
-
+ 
   radiosUso.forEach(r => r.addEventListener('change', validarUso));
-
+ 
   descTextarea.addEventListener('blur', () => {
-    descTextarea.value.trim()
-      ? mostrarValido(descTextarea)
-      : mostrarError(descTextarea, 'La descripción es obligatoria (máx. 500 caracteres).');
-  });
-
+  descTextarea.value.trim()
+    ? mostrarValido(descTextarea)
+    : mostrarError(descTextarea, 'La descripción es obligatoria (máx. 500 caracteres).');
+});
+ 
   /* ── Zona de carga de imagen ──────────────────────── */
-
+ 
   // Abrir selector al hacer clic en la zona o presionar Enter/Espacio
   dropZone.addEventListener('click', () => inputImagen.click());
   dropZone.addEventListener('keydown', (e) => {
@@ -171,7 +171,7 @@
       inputImagen.click();
     }
   });
-
+ 
   // Drag & Drop visual feedback
   dropZone.addEventListener('dragover', (e) => {
     e.preventDefault();
@@ -186,53 +186,46 @@
     const files = e.dataTransfer.files;
     if (files.length) procesarImagen(files[0]);
   });
-
+ 
   // Selección por click
   inputImagen.addEventListener('change', () => {
     if (inputImagen.files.length) procesarImagen(inputImagen.files[0]);
   });
-
-let imagenBase64 = null;
-
-function procesarImagen(file) {
-
-  // Validar tipo
-  const tiposPermitidos = ['image/jpeg', 'image/jpg', 'image/png'];
-  if (!tiposPermitidos.includes(file.type)) {
-    imagenError.textContent = 'Solo se permiten JPG o PNG.';
-    imagenError.style.display = 'block';
-    dropZone.classList.add('border-danger');
-    return;
+ 
+  function procesarImagen(file) {
+    // Validar tipo
+    const tiposPermitidos = ['image/jpeg', 'image/jpg', 'image/png'];
+    if (!tiposPermitidos.includes(file.type)) {
+      imagenError.textContent = 'Solo se permiten archivos JPG o PNG.';
+      imagenError.style.display = 'block';
+      dropZone.classList.add('border-danger');
+      return;
+    }
+ 
+    // Validar tamaño (máx. 5 MB)
+    const maxBytes = 5 * 1024 * 1024;
+    if (file.size > maxBytes) {
+      imagenError.textContent = 'La imagen no puede superar los 5 MB.';
+      imagenError.style.display = 'block';
+      dropZone.classList.add('border-danger');
+      return;
+    }
+ 
+    // Todo OK → mostrar vista previa
+    imagenError.style.display = 'none';
+    dropZone.classList.remove('border-danger');
+    dropZone.classList.add('border-success');
+ 
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      previewImg.src = e.target.result;
+      previewNombre.textContent = file.name;
+      previewTamano.textContent = `${(file.size / 1024).toFixed(1)} KB`;
+      previewContainer.classList.remove('d-none');
+    };
+    reader.readAsDataURL(file);
   }
-
-  // Validar tamaño
-  const maxBytes = 5 * 1024 * 1024;
-  if (file.size > maxBytes) {
-    imagenError.textContent = 'La imagen no puede superar los 5MB.';
-    imagenError.style.display = 'block';
-    dropZone.classList.add('border-danger');
-    return;
-  }
-
-  // Todo OK
-  imagenError.style.display = 'none';
-  dropZone.classList.remove('border-danger');
-  dropZone.classList.add('border-success');
-
-  const reader = new FileReader();
-
-  reader.onload = (e) => {
-    imagenBase64 = e.target.result; // GUARDAR BASE64
-
-    previewImg.src = imagenBase64;
-    previewNombre.textContent = file.name;
-    previewTamano.textContent = `${(file.size / 1024).toFixed(1)} KB`;
-    previewContainer.classList.remove('d-none');
-  };
-
-  reader.readAsDataURL(file);
-}
-
+ 
   // Botón quitar imagen
   btnQuitarImagen.addEventListener('click', () => {
     inputImagen.value = '';           // Limpia el input file
@@ -241,13 +234,13 @@ function procesarImagen(file) {
     dropZone.classList.remove('border-success', 'border-danger');
     imagenError.style.display = 'none';
   });
-
+ 
   /* ── Lista temporal de productos (vive en memoria mientras la página esté abierta)
        INTEGRACIÓN FUTURA: este array desaparece. En su lugar se hara un
        fetch GET /api/productos para traer la lista desde la BD.
   ─────────────────────────────────────────────────────────────────────────── */
   const listaProductos = [];
-
+ 
   /* Muestra el estado actual de la lista en consola */
   function imprimirLista() {
     console.groupCollapsed(
@@ -258,7 +251,7 @@ function procesarImagen(file) {
     });
     console.groupEnd();
   }
-
+ 
   function inputABase64(input) {
     return new Promise((resolve) => {
         try {
@@ -266,53 +259,52 @@ function procesarImagen(file) {
             if (!input || !input.files || input.files.length === 0) {
                 return resolve("");
             }
-
+ 
             const archivo = input.files[0];
             const reader = new FileReader();
-
+ 
             reader.onload = () => {
                 resolve(reader.result || "");
             };
-
+ 
             reader.onerror = () => {
                 resolve("");
             };
-
+ 
             reader.readAsDataURL(archivo);
-
+ 
         } catch (error) {
             resolve("");
         }
     });
 }
-
+ 
   /* ── Envío del formulario ─────────────────────────── */
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
-
+ 
     // Dispara la validación nativa de Bootstrap
     form.classList.add('was-validated');
-
+ 
     // Validaciones personalizadas
     const precioOk = validarPrecio();
     const usoOk = validarUso();
     const imagenOk = validarImagen();
-
+ 
     // Verifica también los campos nativos de Bootstrap
     const formNativoOk = form.checkValidity();
-
+ 
     if (!formNativoOk || !precioOk || !usoOk || !imagenOk) {
       // Hace scroll al primer campo inválido
       const primerError = form.querySelector('.is-invalid, [style*="display: block"]');
       if (primerError) primerError.scrollIntoView({ behavior: 'smooth', block: 'center' });
       return;
     }
-
+ 
     let imagen = await inputABase64(inputImagen);
-
+ 
     /*  Formulario válido — construir el objeto producto */
     const nuevoProducto = {
-      imagen: imagenBase64,
       id: listaProductos.length + 1,          // ID temporal (la BD lo generará)
       nombre: inputNombre.value.trim(),
       cantidad: parseInt(inputCantidad.value),
@@ -329,33 +321,23 @@ function procesarImagen(file) {
       imagen: imagen,
       esBase64: true
     };
-
-    // // Agregar a la lista en memoria
-    // listaProductos.push(nuevoProducto);
-    // Obtener lo que ya existe
-    
-    const productosGuardados = JSON.parse(localStorage.getItem('productos')) || [];
-
-    // Agregar nuevo producto
-    productosGuardados.push(nuevoProducto);
-
-    // Guardar otra vez
-    localStorage.setItem('productos', JSON.stringify(productosGuardados));
-
-
-
+ 
+    console.log(JSON.stringify(nuevoProducto));
+    // Agregar a la lista en memoria
+    listaProductos.push(nuevoProducto);
+ 
     localStorage.setItem("ListaProductos",JSON.stringify(listaProductos));
-
-    
-    
-
+ 
+   
+   
+ 
     // Mostrar en consola
     console.log(
       ' Producto agregado:',
       nuevoProducto
     );
     imprimirLista();
-
+ 
     /*
        CUANDO SE TENGA LA API — se reemplaza las dos líneas de arriba por:
  
@@ -371,20 +353,20 @@ function procesarImagen(file) {
         })
         .catch(err => console.error('Error al guardar:', err));
     */
-
+ 
     alert(`Producto "${nuevoProducto.nombre}" agregado.`);
-
+ 
     limpiarFormulario();
-
-
+ 
+ 
   });
-
+ 
   /* ── Botón Cancelar ───────────────────────────────── */
   document.getElementById('btnCancelar').addEventListener('click', () => {
     if (confirm('¿Deseas cancelar? Los datos ingresados se perderán.')) {
       limpiarFormulario();
-
+     
     }
   });
-
+ 
 })();
