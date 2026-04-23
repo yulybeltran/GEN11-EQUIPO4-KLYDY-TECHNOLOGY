@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&display=swap" rel="stylesheet"> <!--link de fuente de h2-->
+    <link rel="stylesheet" href="../CSS/productos.css">
+    <title>Document</title>
+</head>
+<body class="contenedor" >
+
+  <!--menu-->
+    <div class="Cajoncategorias">
+    <div class="menuCategorias"> 
+      <h2>Categorias</h2>
+      <button class="item" data-target="inicio">inicio</button>
+      <button class="item" data-target="computadores">Computadores</button>
+      <button class="item" data-target="targetas">Targetas graficas</button>
+      <button class="item" data-target="audio">Audio</button>
+      <button class="item" data-target="videojuegos">Videojuegos</button>
+      <button class="item" data-target="accesorios">Accesorios</button>
+      <button class="item" data-target="smartwatch">Smartwatch</button>
+      <button class="item" data-target="otros">Otros</button>
+    </div>
+    <div class="filtros">
+      <!--firtos usos-->
+      <h2 class="filtro">Filtros</h2>
+      <div class="usos">
+        <h4>Usos</h4>
+        <div class="lista">
+          <ul>
+            <li class="itenUso" data-target="gaming">Gaming</li>
+            <li class="itenUso" data-target="oficina">Oficina</li>
+          </ul>
+          <ul>
+            <li class="itenUso" data-target="estudiantes" >Estudiantes</li>
+            <li class="itenUso" data-target="empresa">Empresa</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="filtrosPrecio">
+        <div class="filtro-precio">
+          <label>Precio mínimo: <span id="minValor">0</span></label>
+          <input type="range" id="precioMin" >
+
+          <label>Precio máximo: <span id="maxValor">0</span></label>
+          <input type="range" id="precioMax" >
+        </div>
+      </div>
+
+      <!--checkbox marca-->
+      <div class="marcas">
+        <div>
+          <label>
+          <input type="checkbox" name="acer" value="acer">
+           Acer
+        </label>
+        <label>
+          <input type="checkbox" name="apple" value="apple">
+           Apple
+        </label>
+         <label>
+          <input type="checkbox" name="asus" value="asus">
+           Asus
+        </label>
+        <label>
+          <input type="checkbox" name="dell" value="dell">
+           Dell
+        </label>
+        </div>
+        
+        <div>
+          <label>
+           <input type="checkbox" name="hp" value="hp">
+            HP
+          </label>
+          <label>
+            <input type="checkbox" name="Lenovo" value="Lenovo">
+            Lenovo
+          </label>
+          <label>
+            <input type="checkbox" name="microsoft" value="microsoft">
+            Microsoft
+          </label>
+          <label>
+            <input type="checkbox" name="msi" value="msi">
+            Msi
+          </label> 
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--finde menu-->
+
+
+  <div class="productos" style="padding-bottom: 100px;">
+       <!--Carrusel-->
+    <div class="inicio boton">
+
+      <div id="carouselExampleIndicators" class="carousel slide"> 
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="https://i.postimg.cc/SsVtz3dM/acer.png" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="https://i.postimg.cc/hjM376sQ/apple.png" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="https://i.postimg.cc/Y98ymZRY/asus.png" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="https://i.postimg.cc/nzTwQg27/dell.png" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="https://i.postimg.cc/tTDmVwkd/hp.png" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="https://i.postimg.cc/D0ZpQ6pJ/lenovo.png" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="https://i.postimg.cc/ZnRsPHsv/msi.png" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      <!--fin de carusael-->
+
+      <!--cards-->
+      <div class="container text-center"> 
+        <div class="row align-items-start g-4" id="contenedor">   
+          <!--cards-->
+        </div>
+      </div> 
+      <!--fin de card--> 
+
+    </div>
+    
+  </div>
+  <!--fin de cards-->
+      
+
+
+
+  <script type="module" src="../JS/productos.js"></script>     
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>  
+</body>
