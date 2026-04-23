@@ -259,8 +259,35 @@ function procesarImagen(file) {
     console.groupEnd();
   }
 
+  function inputABase64(input) {
+    return new Promise((resolve) => {
+        try {
+            // Validar que exista archivo
+            if (!input || !input.files || input.files.length === 0) {
+                return resolve("");
+            }
+
+            const archivo = input.files[0];
+            const reader = new FileReader();
+
+            reader.onload = () => {
+                resolve(reader.result || "");
+            };
+
+            reader.onerror = () => {
+                resolve("");
+            };
+
+            reader.readAsDataURL(archivo);
+
+        } catch (error) {
+            resolve("");
+        }
+    });
+}
+
   /* ── Envío del formulario ─────────────────────────── */
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     // Dispara la validación nativa de Bootstrap
@@ -281,6 +308,8 @@ function procesarImagen(file) {
       return;
     }
 
+    let imagen = await inputABase64(inputImagen);
+
     /*  Formulario válido — construir el objeto producto */
     const nuevoProducto = {
       imagen: imagenBase64,
@@ -297,6 +326,8 @@ function procesarImagen(file) {
         ? `${(inputImagen.files[0].size / 1024).toFixed(1)} KB`
         : null,
       creadoEn: new Date().toLocaleString('es-CO'),
+      imagen: imagen,
+      esBase64: true
     };
 
     // // Agregar a la lista en memoria
@@ -312,6 +343,11 @@ function procesarImagen(file) {
     localStorage.setItem('productos', JSON.stringify(productosGuardados));
 
 
+
+    localStorage.setItem("ListaProductos",JSON.stringify(listaProductos));
+
+    
+    
 
     // Mostrar en consola
     console.log(

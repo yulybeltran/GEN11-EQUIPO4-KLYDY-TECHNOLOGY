@@ -3,7 +3,40 @@ import {productos} from "./textoProducto.js";
 
 
 //convertimos en JSON
-let productosFiltros = JSON.parse(JSON.stringify(productos));
+let listaProductos = JSON.parse(JSON.stringify(productos));
+
+function IniciarDatos(){
+
+    let datos = localStorage.getItem("ListaProductos");
+
+    if(datos){
+
+        let creadosProductos = JSON.parse(datos);
+            listaProductos = [...listaProductos,...creadosProductos];
+    }
+
+
+}
+
+function ActualizarProductos(){
+
+    listaProductos = JSON.parse(JSON.stringify(productos));
+
+    let datos = localStorage.getItem("ListaProductos");
+
+    if(datos){
+
+        let creadosProductos = JSON.parse(datos);
+            listaProductos = [...listaProductos,...creadosProductos];
+    }
+
+    mostrarProductos();
+}
+setInterval(ActualizarProductos, 2000);
+
+ IniciarDatos();
+
+let productosFiltros = JSON.parse(JSON.stringify(listaProductos));
 let filtrarCategoria = "inicio"; 
 let filtrarUso = "";
 
@@ -93,8 +126,8 @@ listaUsos.forEach(function(boton){
 
 //muetra producto
 function mostrarProductos(){
-    productosFiltros = productos.filter(function(item){
-        return(filtrarCategoria === "inicio" || item.categoria === filtrarCategoria) && (filtrarUso === "" || item.usos === filtrarUso);
+    productosFiltros = listaProductos.filter(function(item){
+        return(filtrarCategoria === "inicio" || item.categoria === filtrarCategoria) && (filtrarUso === "" || item.uso === filtrarUso);
     });
 
     let contenedorP = document.getElementById("contenedor");

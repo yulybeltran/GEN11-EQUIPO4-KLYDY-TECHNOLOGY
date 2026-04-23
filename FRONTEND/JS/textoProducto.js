@@ -7,9 +7,10 @@ export const productos = [
         imagen: "https://i.postimg.cc/25yF3bSr/Copilot-20260418-213905.png", 
         descripcion: "Gracias a su chasis ultradelgado, la serie Moderna.", 
         precio: 4599900,
-        categoria: "computadores",
-        usos: "gaming",
-        marca: "msi"
+        categoria: "laptops",
+        uso: "gamer",
+        marca: "msi",
+        catidad: 25
     },
     {
         id: 2,
@@ -17,9 +18,10 @@ export const productos = [
         imagen: "https://i.postimg.cc/gJVSdHYh/Copilot-20260423-023926.png", 
         descripcion: "Transición a un flujo de trabajo más inteligente.", 
         precio: 8150000,
-        categoria: "computadores",
-        usos: "empresa",
-        marca: "msi"
+        categoria: "laptops",
+        uso: "trabajo",
+        marca: "msi",
+        catidad: 25
     },
      {
         id: 3,
@@ -27,9 +29,10 @@ export const productos = [
         imagen: "https://i.postimg.cc/xTM4PYD9/Copilot-20260423-025245.png", 
         descripcion: "Maximice su potencial con una laptop resiliente.", 
         precio: 5139000,
-        categoria: "computadores",
-        usos: "estudiantes",
-        marca: "hp"
+        categoria: "laptops",
+        uso: "estudio",
+        marca: "hp",
+        catidad: 25
     },
     {
         id: 4,
@@ -37,9 +40,10 @@ export const productos = [
         imagen: "https://i.postimg.cc/QdBkqJWj/Copilot-20260423-030436.png", 
         descripcion: "El Portátil HP 240R G9 cuenta con una pantalla FHD.", 
         precio: 2488000,
-        categoria: "computadores",
-        usos: "oficina",
-        marca: "hp"
+        categoria: "laptops",
+        uso: "general",
+        marca: "hp",
+        catidad: 25
     },
 
 
@@ -53,9 +57,10 @@ export const productos = [
         imagen: "https://i.postimg.cc/Ls4T1gFr/Copilot-20260423-032907.png",
         descripcion: "Un modelo insignia elaborado con precisión.",
         precio: 6880000,
-        categoria: "targetas",
-        usos: "gaming",
-        marca: "msi"
+        categoria: "tarjetas Graficar",
+        uso: "gamer",
+        marca: "msi",
+        catidad: 25
 
     },
     {
@@ -64,9 +69,10 @@ export const productos = [
         imagen: "https://i.postimg.cc/rFy9DtGS/Copilot-20260423-031931.png",
         descripcion: "Una evolución cumbre del diseño térmico.",
         precio: 2000000,
-        categoria: "targetas",
-        usos: "empresa",
-        marca: "msi"
+        categoria: "tarjetas Graficar",
+        uso: "trabajo",
+        marca: "msi",
+        catidad: 25
 
     },
      {
@@ -75,9 +81,10 @@ export const productos = [
         imagen: "https://i.postimg.cc/SN9KSZG7/Copilot-20260418-210612.png",
         descripcion: "una combinación impecable de arte moderno.",
         precio: 1604280,
-        categoria: "targetas",
-        usos: "estudiantes",
-        marca: "msi"
+        categoria: "tarjetas Graficar",
+        uso: "estudio",
+        marca: "msi",
+        catidad: 25
 
     },
      {
@@ -86,9 +93,10 @@ export const productos = [
         imagen: "https://i.postimg.cc/FRp1J1m2/Copilot-20260423-033739.png",
         descripcion: "La tarjeta gráfica MSI Vanguard Series encarna.",
         precio: 6200000,
-        categoria: "targetas",
-        usos: "oficina",
-        marca: "msi"
+        categoria: "tarjetas Graficar",
+        uso: "general",
+        marca: "msi",
+        catidad: 25
 
     },
 
@@ -103,8 +111,9 @@ export const productos = [
         descripcion: "Auriculares de diadema alámbricos diseñados para gaming.", 
         precio: 130000,
         categoria: "audio",
-        usos: "gaming",
-        marca: "lenovo"
+        uso: "gamer",
+        marca: "lenovo",
+        catidad: 25
     },
     { 
         id: 10,
@@ -113,8 +122,9 @@ export const productos = [
         descripcion: "Diseñado para proporcionar una experiencia inalámbrica.", 
         precio: 279900,
         categoria: "audio",
-        usos: "empresa",
-        marca: "lenovo"
+        uso: "trabajo",
+        marca: "lenovo",
+        catidad: 25
     },
     { 
         id: 11,
@@ -123,8 +133,9 @@ export const productos = [
         descripcion: "Con una latencia ultrabaja y una comodidad excepcional.", 
         precio: 239900,
         categoria: "audio",
-        usos: "estudiantes",
-        marca: "lenovo"
+        uso: "estudio",
+        marca: "lenovo",
+        catidad: 25
     },
     { 
         id: 12,
@@ -133,8 +144,10 @@ export const productos = [
         descripcion: "HP Poly Voyager 4320 con certificación de Microsoft Teams.", 
         precio: 120000,
         categoria: "audio",
-        usos: "oficina",
-        marca: "lenovo"
+        uso: "general",
+        marca: "lenovo",
+        catidad: 25
+
     },
 
 
@@ -147,8 +160,9 @@ export const productos = [
         descripcion: "Accede rápidamente a la Game Bar.", 
         precio: 2599900,
         categoria: "videojuegos",
-        usos: "gaming",
-        marca: "asus"
+        uso: "gamer",
+        marca: "asus",
+        catidad: 25
         
     },
     { 
@@ -158,8 +172,9 @@ export const productos = [
         descripcion: "El procesador de élite de alto rendimiento y mejorado.", 
         precio: 4099900,
         categoria: "videojuegos",
-        usos: "estudiantes",
-        marca: "asus"
+        uso: "estudio",
+        marca: "asus",
+        catidad: 25
         
     },
    
@@ -175,8 +190,9 @@ export const productos = [
         imagen: "https://i.postimg.cc/G2NtYTM6/Copilot-20260418-085014.png", 
         descripcion: "Esta serie combina videojuegos y actividades creativas.", 
         precio: 330000,
-        categoria: "accesorios",
-        usos: "gaming",
+        categoria: "teclados",
+        uso: "gamer",
+        catidad: 25,
         marca: "msi"
         
     },
@@ -187,9 +203,10 @@ export const productos = [
         imagen: "https://i.postimg.cc/nVsYnJ9Y/Copilot-20260418-085301.png", 
         descripcion: "teclado compacto diseñado para la eficiencia y la portabilidad.", 
         precio: 3250389,
-        categoria: "accesorios",
-        usos: "gaming",
-        marca: "msi"
+        categoria: "teclados",
+        uso: "gamer",
+        marca: "msi",
+        catidad: 25
     },
    
 
@@ -199,20 +216,25 @@ export const productos = [
         imagen: "https://i.postimg.cc/XYKtxFnD/Copilot-20260418-204720.png",
         descripcion: "Inspirado en mapas topográficos, el juego de teclas.", 
         precio: 324840,
-        categoria: "accesorios",
-        usos: "gaming",
-        marca: "msi"
+        categoria: "teclados",
+        uso: "gamer",
+        marca: "msi",
+        catidad: 25
     },
+
+
     { 
         id: 18,
         nombre: "Premium - MS900", 
         imagen: "https://i.postimg.cc/d3XHR2K6/Copilot-20260423-043455.png",
         descripcion: "Este ratón de alta calidad se ha diseñado con detalle.", 
         precio: 417496,
-        categoria: "accesorios",
-        usos: "empresa",
-        marca: "dell"
+        categoria: "mouses",
+        uso: "trabajo",
+        marca: "dell",
+        catidad: 25
     },
+
     { 
         id: 19,
         nombre: "WB3023 – 2K QHD", 
@@ -220,8 +242,9 @@ export const productos = [
         descripcion: "Una calidad de vídeo excepcional.", 
         precio: 268000,
         categoria: "accesorios",
-        usos: "oficina",
-        marca: "dell"
+        uso: "general",
+        marca: "dell",
+        catidad: 25
     },
 
 
@@ -233,9 +256,10 @@ export const productos = [
         imagen: "https://i.postimg.cc/vTzPjJ93/Copilot-20260423-044258.png",
         descripcion: "Mientras más sepas, más poder tienes para cuidarte.", 
         precio: 1850000,
-        categoria: "smartwatch",
-        usos: "oficina",
-        marca: "apple"
+        categoria: "smartwatches",
+        uso: "general",
+        marca: "apple",
+        catidad: 25
     },
      { 
         id: 21,
@@ -243,9 +267,10 @@ export const productos = [
         imagen: "https://i.postimg.cc/PxNrPHfy/Copilot-20260423-044715.png",
         descripcion: "Es personalizable y te da acceso inmediato a funciones.", 
         precio: 4349000,
-        categoria: "smartwatch",
-        usos: "oficina",
-        marca: "apple"
+        categoria: "smartwatches",
+        uso: "general",
+        marca: "apple",
+        catidad: 25
     },
 
 
@@ -256,9 +281,10 @@ export const productos = [
         imagen: "https://i.postimg.cc/RFb1Hv7r/Copilot-20260423-045447.png",
         descripcion: "Adaptador de corriente alterna; 1 cable de alimentación.", 
         precio: 126500,
-        categoria: "otros",
-        usos: "oficina",
-        marca: "hp"
+        categoria: "accesorios",
+        uso: "general",
+        marca: "hp",
+        catidad: 25
     },
     { 
         id: 23,
@@ -266,9 +292,10 @@ export const productos = [
         imagen: "https://i.postimg.cc/YSFHYrLq/Copilot-20260423-045952.png",
         descripcion: "Conecta tu portátil mediante USB-C™ a tus pantallas.", 
         precio: 875773,
-        categoria: "otros",
-        usos: "empresa",
-        marca: "hp"
+        categoria: "accesorios",
+        uso: "trabajo",
+        marca: "hp",
+        catidad: 25
     },
 
 

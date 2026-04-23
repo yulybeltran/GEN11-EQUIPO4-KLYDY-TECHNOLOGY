@@ -103,7 +103,8 @@ body {
 /*MENU ........................................................................................*/
 .menuCategorias{
   background-color: transparent;
-  height: 44%; 
+  height: 49; 
+  padding: 0px 0px 5px 0px;
   margin-bottom: 4%;
   border-radius: 12px;
   box-shadow: 0px 0px 7px rgba(10,189,227,0.7);
@@ -115,7 +116,7 @@ body {
   text-decoration: none;
   color:rgba(255, 255, 255, 0.823);
   font-family:'Courier New', Courier, monospace;
-  font-size: 16px;
+  font-size: 15px;
   display: block;
   margin: 0 auto;
   border: none;
@@ -141,14 +142,14 @@ body {
   text-transform: uppercase; 
   letter-spacing: 20%; 
   text-align: center;
-  padding: 18px 0px 0px 0px;
+  padding: 17px 0px 0px 0px;
 }
 
 /*FILTROS USOS...............................................................*/
 .filtros{
   background-color: transparent;
   box-shadow: 0px 0px 2px#07e516;
-  height: 52%; /*lago de filtro*/
+  height: 50%; /*lago de filtro*/
   padding: 7px;
   border-radius: 12px;
   
@@ -179,11 +180,11 @@ body {
   text-transform: uppercase; 
   letter-spacing: 2px;
   text-align: center;
-  padding: 18px 0px 0px 0px;
+  padding: 10px 0px 0px 0px;
 }
 
 /*CAJON USOS*/
-.usos{
+.uso{
   background-color: transparent;
   display: block;
 }
