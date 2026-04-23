@@ -196,7 +196,7 @@ let imagenBase64 = null;
 
 function procesarImagen(file) {
 
-  // ✅ Validar tipo
+  // Validar tipo
   const tiposPermitidos = ['image/jpeg', 'image/jpg', 'image/png'];
   if (!tiposPermitidos.includes(file.type)) {
     imagenError.textContent = 'Solo se permiten JPG o PNG.';
@@ -205,7 +205,7 @@ function procesarImagen(file) {
     return;
   }
 
-  // ✅ Validar tamaño
+  // Validar tamaño
   const maxBytes = 5 * 1024 * 1024;
   if (file.size > maxBytes) {
     imagenError.textContent = 'La imagen no puede superar los 5MB.';
@@ -214,7 +214,7 @@ function procesarImagen(file) {
     return;
   }
 
-  // ✅ Todo OK
+  // Todo OK
   imagenError.style.display = 'none';
   dropZone.classList.remove('border-danger');
   dropZone.classList.add('border-success');
@@ -222,7 +222,7 @@ function procesarImagen(file) {
   const reader = new FileReader();
 
   reader.onload = (e) => {
-    imagenBase64 = e.target.result; // 🔥 GUARDAR BASE64
+    imagenBase64 = e.target.result; // GUARDAR BASE64
 
     previewImg.src = imagenBase64;
     previewNombre.textContent = file.name;
