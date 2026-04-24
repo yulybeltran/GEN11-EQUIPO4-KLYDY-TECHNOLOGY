@@ -184,11 +184,7 @@ legend {
 }
 
 
-/* Control de la lineas del fondo */
 
-.neon-lines {
-  z-index: -1 !important;
-}
 
 
 @media (max-width: 1040px) {
